@@ -1,0 +1,1097 @@
+{
+  "version": "eff-1.0",
+  "replaced": false,
+  "source": "seed",
+  "departments": [
+    {
+      "code": "INT",
+      "name": "内科",
+      "level": 1,
+      "parentCode": null,
+      "aliases": [
+        "大内科",
+        "普通内科"
+      ],
+      "bodyParts": [
+        "bp_systemic"
+      ],
+      "scope": "内科系统疾病的初诊与分流"
+    },
+    {
+      "code": "INT_CARDIO",
+      "name": "心血管内科",
+      "level": 2,
+      "parentCode": "INT",
+      "parentName": "内科",
+      "aliases": [
+        "心内科",
+        "心脏内科",
+        "心血管科"
+      ],
+      "bodyParts": [
+        "bp_chest",
+        "bp_systemic",
+        "bp_lower_limb"
+      ],
+      "scope": "高血压、冠心病、心绞痛、心律失常、心力衰竭、心肌病、心脏瓣膜病、心肌炎",
+      "typicalSymptoms": [
+        "胸痛",
+        "胸闷",
+        "心悸",
+        "气短",
+        "下肢水肿",
+        "晕厥",
+        "血压高"
+      ]
+    },
+    {
+      "code": "INT_RESP",
+      "name": "呼吸内科",
+      "level": 2,
+      "parentCode": "INT",
+      "parentName": "内科",
+      "aliases": [
+        "呼吸科",
+        "肺科",
+        "呼吸与危重症医学科"
+      ],
+      "bodyParts": [
+        "bp_chest",
+        "bp_neck",
+        "bp_systemic"
+      ],
+      "scope": "肺炎、支气管炎、哮喘、慢阻肺、肺结节、胸腔积液、睡眠呼吸暂停",
+      "typicalSymptoms": [
+        "咳嗽",
+        "咳痰",
+        "咯血",
+        "呼吸困难",
+        "喘息",
+        "胸痛",
+        "发热"
+      ]
+    },
+    {
+      "code": "INT_GASTRO",
+      "name": "消化内科",
+      "level": 2,
+      "parentCode": "INT",
+      "parentName": "内科",
+      "aliases": [
+        "消化科",
+        "胃肠内科",
+        "脾胃科"
+      ],
+      "bodyParts": [
+        "bp_upper_abdomen",
+        "bp_lower_abdomen",
+        "bp_chest"
+      ],
+      "scope": "胃炎、胃食管反流、消化性溃疡、肝炎、脂肪肝、胆囊炎、胰腺炎、肠易激综合征、消化道出血",
+      "typicalSymptoms": [
+        "腹痛",
+        "腹胀",
+        "反酸",
+        "烧心",
+        "恶心",
+        "呕吐",
+        "腹泻",
+        "便秘",
+        "黑便",
+        "食欲下降"
+      ]
+    },
+    {
+      "code": "INT_NEURO",
+      "name": "神经内科",
+      "level": 2,
+      "parentCode": "INT",
+      "parentName": "内科",
+      "aliases": [
+        "神内科",
+        "脑内科"
+      ],
+      "bodyParts": [
+        "bp_head",
+        "bp_systemic",
+        "bp_upper_limb",
+        "bp_lower_limb"
+      ],
+      "scope": "脑梗死、脑出血后遗症、头痛、癫痫、帕金森病、周围神经病、眩晕、痴呆",
+      "typicalSymptoms": [
+        "头痛",
+        "头晕",
+        "眩晕",
+        "肢体麻木",
+        "肢体无力",
+        "抽搐",
+        "手抖",
+        "记忆力下降",
+        "言语不清"
+      ]
+    },
+    {
+      "code": "INT_ENDO",
+      "name": "内分泌科",
+      "level": 2,
+      "parentCode": "INT",
+      "parentName": "内科",
+      "aliases": [
+        "内分泌代谢科",
+        "糖尿病科"
+      ],
+      "bodyParts": [
+        "bp_neck",
+        "bp_systemic"
+      ],
+      "scope": "糖尿病、甲状腺功能异常、痛风、骨质疏松、肥胖、垂体与肾上腺疾病",
+      "typicalSymptoms": [
+        "多饮",
+        "多尿",
+        "体重下降",
+        "怕热多汗",
+        "颈部肿大",
+        "关节红肿痛",
+        "乏力"
+      ]
+    },
+    {
+      "code": "INT_NEPHRO",
+      "name": "肾内科",
+      "level": 2,
+      "parentCode": "INT",
+      "parentName": "内科",
+      "aliases": [
+        "肾脏内科",
+        "肾病科"
+      ],
+      "bodyParts": [
+        "bp_back",
+        "bp_lower_abdomen",
+        "bp_systemic"
+      ],
+      "scope": "肾炎、肾病综合征、慢性肾功能不全、血尿蛋白尿、尿路感染的内科治疗",
+      "typicalSymptoms": [
+        "水肿",
+        "泡沫尿",
+        "血尿",
+        "尿量减少",
+        "腰酸"
+      ]
+    },
+    {
+      "code": "INT_HEMA",
+      "name": "血液内科",
+      "level": 2,
+      "parentCode": "INT",
+      "parentName": "内科",
+      "aliases": [
+        "血液科"
+      ],
+      "bodyParts": [
+        "bp_systemic",
+        "bp_skin"
+      ],
+      "scope": "贫血、白细胞异常、血小板减少、淋巴结肿大、凝血功能障碍、白血病与淋巴瘤",
+      "typicalSymptoms": [
+        "面色苍白",
+        "乏力",
+        "皮下出血点",
+        "牙龈出血",
+        "淋巴结肿大",
+        "反复发热"
+      ]
+    },
+    {
+      "code": "INT_RHEU",
+      "name": "风湿免疫科",
+      "level": 2,
+      "parentCode": "INT",
+      "parentName": "内科",
+      "aliases": [
+        "风湿科",
+        "免疫科"
+      ],
+      "bodyParts": [
+        "bp_upper_limb",
+        "bp_lower_limb",
+        "bp_back",
+        "bp_systemic"
+      ],
+      "scope": "类风湿关节炎、强直性脊柱炎、系统性红斑狼疮、干燥综合征、痛风、血管炎",
+      "typicalSymptoms": [
+        "多关节肿痛",
+        "晨僵",
+        "口干眼干",
+        "面部红斑",
+        "反复口腔溃疡",
+        "雷诺现象"
+      ]
+    },
+    {
+      "code": "INT_INFECT",
+      "name": "感染科",
+      "level": 2,
+      "parentCode": "INT",
+      "parentName": "内科",
+      "aliases": [
+        "感染性疾病科",
+        "传染科",
+        "肝病科"
+      ],
+      "bodyParts": [
+        "bp_systemic"
+      ],
+      "scope": "病毒性肝炎、结核、不明原因发热、各类感染性疾病",
+      "typicalSymptoms": [
+        "长期发热",
+        "乏力",
+        "黄疸",
+        "肝功能异常"
+      ]
+    },
+    {
+      "code": "INT_GERI",
+      "name": "老年病科",
+      "level": 2,
+      "parentCode": "INT",
+      "parentName": "内科",
+      "aliases": [
+        "老年医学科"
+      ],
+      "bodyParts": [
+        "bp_systemic"
+      ],
+      "scope": "老年人多病共存的综合管理、衰弱、多重用药评估",
+      "typicalSymptoms": [
+        "多种慢病",
+        "反复跌倒",
+        "食欲差",
+        "全身乏力"
+      ]
+    },
+    {
+      "code": "SUR",
+      "name": "外科",
+      "level": 1,
+      "parentCode": null,
+      "aliases": [
+        "大外科"
+      ],
+      "bodyParts": [
+        "bp_systemic"
+      ],
+      "scope": "外科系统疾病的初诊与分流"
+    },
+    {
+      "code": "SUR_GEN",
+      "name": "普通外科",
+      "level": 2,
+      "parentCode": "SUR",
+      "parentName": "外科",
+      "aliases": [
+        "普外科",
+        "胃肠外科"
+      ],
+      "bodyParts": [
+        "bp_upper_abdomen",
+        "bp_lower_abdomen"
+      ],
+      "scope": "阑尾炎、疝气、肠梗阻、胃肠肿瘤、腹部外伤、体表包块",
+      "typicalSymptoms": [
+        "腹痛",
+        "腹部包块",
+        "腹股沟包块",
+        "腹部外伤",
+        "停止排便排气"
+      ]
+    },
+    {
+      "code": "SUR_HEPATO",
+      "name": "肝胆外科",
+      "level": 2,
+      "parentCode": "SUR",
+      "parentName": "外科",
+      "aliases": [
+        "肝胆胰外科",
+        "肝胆胰脾外科"
+      ],
+      "bodyParts": [
+        "bp_upper_abdomen"
+      ],
+      "scope": "胆囊结石、胆管结石、胆囊炎手术、肝脏肿瘤、胰腺疾病手术",
+      "typicalSymptoms": [
+        "右上腹痛",
+        "胆结石",
+        "黄疸",
+        "餐后腹痛"
+      ]
+    },
+    {
+      "code": "SUR_BREAST",
+      "name": "乳腺外科",
+      "level": 2,
+      "parentCode": "SUR",
+      "parentName": "外科",
+      "aliases": [
+        "乳腺科",
+        "甲乳外科"
+      ],
+      "bodyParts": [
+        "bp_chest"
+      ],
+      "scope": "乳腺结节、乳腺增生、乳腺炎、乳腺肿瘤",
+      "typicalSymptoms": [
+        "乳房包块",
+        "乳房疼痛",
+        "乳头溢液"
+      ]
+    },
+    {
+      "code": "SUR_THYROID",
+      "name": "甲状腺外科",
+      "level": 2,
+      "parentCode": "SUR",
+      "parentName": "外科",
+      "aliases": [
+        "头颈外科",
+        "甲乳外科"
+      ],
+      "bodyParts": [
+        "bp_neck"
+      ],
+      "scope": "甲状腺结节、甲状腺肿瘤的外科评估与手术",
+      "typicalSymptoms": [
+        "颈部肿块",
+        "甲状腺结节",
+        "声音嘶哑伴颈部肿物"
+      ]
+    },
+    {
+      "code": "SUR_ORTHO",
+      "name": "骨科",
+      "level": 2,
+      "parentCode": "SUR",
+      "parentName": "外科",
+      "aliases": [
+        "骨伤科",
+        "创伤骨科",
+        "脊柱外科",
+        "关节外科"
+      ],
+      "bodyParts": [
+        "bp_back",
+        "bp_neck",
+        "bp_upper_limb",
+        "bp_lower_limb"
+      ],
+      "scope": "骨折、颈椎病、腰椎间盘突出、关节炎、运动损伤、骨质增生",
+      "typicalSymptoms": [
+        "腰痛",
+        "颈肩痛",
+        "关节痛",
+        "外伤",
+        "活动受限",
+        "肢体畸形",
+        "扭伤"
+      ]
+    },
+    {
+      "code": "SUR_URO",
+      "name": "泌尿外科",
+      "level": 2,
+      "parentCode": "SUR",
+      "parentName": "外科",
+      "aliases": [
+        "泌尿科",
+        "男科"
+      ],
+      "bodyParts": [
+        "bp_lower_abdomen",
+        "bp_back",
+        "bp_pelvis"
+      ],
+      "scope": "泌尿系结石、前列腺增生、泌尿系肿瘤、男性生殖系统疾病",
+      "typicalSymptoms": [
+        "尿频",
+        "尿急",
+        "尿痛",
+        "血尿",
+        "排尿困难",
+        "腰腹绞痛",
+        "阴囊肿痛"
+      ]
+    },
+    {
+      "code": "SUR_NEUROSUR",
+      "name": "神经外科",
+      "level": 2,
+      "parentCode": "SUR",
+      "parentName": "外科",
+      "aliases": [
+        "脑外科"
+      ],
+      "bodyParts": [
+        "bp_head"
+      ],
+      "scope": "颅脑外伤、脑肿瘤、脑血管畸形、脑出血手术",
+      "typicalSymptoms": [
+        "头部外伤",
+        "颅内占位",
+        "进行性头痛伴呕吐"
+      ]
+    },
+    {
+      "code": "SUR_THOR",
+      "name": "胸外科",
+      "level": 2,
+      "parentCode": "SUR",
+      "parentName": "外科",
+      "aliases": [
+        "胸心外科"
+      ],
+      "bodyParts": [
+        "bp_chest"
+      ],
+      "scope": "肺结节手术、食管疾病、纵隔肿瘤、气胸、胸部外伤、肋骨骨折",
+      "typicalSymptoms": [
+        "肺结节",
+        "胸部外伤",
+        "吞咽困难",
+        "胸壁包块"
+      ]
+    },
+    {
+      "code": "SUR_CARDIOSUR",
+      "name": "心脏大血管外科",
+      "level": 2,
+      "parentCode": "SUR",
+      "parentName": "外科",
+      "aliases": [
+        "心外科",
+        "心血管外科"
+      ],
+      "bodyParts": [
+        "bp_chest"
+      ],
+      "scope": "先天性心脏病、瓣膜病手术、冠脉搭桥、主动脉疾病",
+      "typicalSymptoms": [
+        "确诊心脏病需手术评估"
+      ]
+    },
+    {
+      "code": "SUR_VASC",
+      "name": "血管外科",
+      "level": 2,
+      "parentCode": "SUR",
+      "parentName": "外科",
+      "aliases": [
+        "周围血管科"
+      ],
+      "bodyParts": [
+        "bp_lower_limb",
+        "bp_upper_limb"
+      ],
+      "scope": "下肢静脉曲张、深静脉血栓、动脉硬化闭塞、静脉炎",
+      "typicalSymptoms": [
+        "下肢青筋凸起",
+        "单侧下肢肿胀",
+        "间歇性跛行",
+        "肢体发凉"
+      ]
+    },
+    {
+      "code": "SUR_ANO",
+      "name": "肛肠科",
+      "level": 2,
+      "parentCode": "SUR",
+      "parentName": "外科",
+      "aliases": [
+        "肛肠外科",
+        "结直肠肛门外科"
+      ],
+      "bodyParts": [
+        "bp_pelvis",
+        "bp_lower_abdomen"
+      ],
+      "scope": "痔疮、肛裂、肛瘘、肛周脓肿、直肠脱垂",
+      "typicalSymptoms": [
+        "便血",
+        "肛门疼痛",
+        "肛门肿物",
+        "肛门瘙痒",
+        "排便疼痛"
+      ]
+    },
+    {
+      "code": "SUR_BURN",
+      "name": "烧伤整形科",
+      "level": 2,
+      "parentCode": "SUR",
+      "parentName": "外科",
+      "aliases": [
+        "烧伤科",
+        "整形外科",
+        "整形美容科"
+      ],
+      "bodyParts": [
+        "bp_skin"
+      ],
+      "scope": "烧烫伤、瘢痕、体表整形与修复",
+      "typicalSymptoms": [
+        "烧伤",
+        "烫伤",
+        "瘢痕增生"
+      ]
+    },
+    {
+      "code": "OBG",
+      "name": "妇产科",
+      "level": 1,
+      "parentCode": null,
+      "aliases": [
+        "妇幼科"
+      ],
+      "bodyParts": [
+        "bp_pelvis",
+        "bp_lower_abdomen"
+      ],
+      "scope": "女性生殖系统疾病与妊娠相关问题的初诊与分流"
+    },
+    {
+      "code": "OBG_GYN",
+      "name": "妇科",
+      "level": 2,
+      "parentCode": "OBG",
+      "parentName": "妇产科",
+      "aliases": [
+        "妇女保健科"
+      ],
+      "bodyParts": [
+        "bp_pelvis",
+        "bp_lower_abdomen"
+      ],
+      "scope": "月经不调、阴道炎、盆腔炎、子宫肌瘤、卵巢囊肿、宫颈病变、更年期问题",
+      "typicalSymptoms": [
+        "月经不调",
+        "白带异常",
+        "外阴瘙痒",
+        "下腹痛",
+        "阴道出血",
+        "痛经"
+      ]
+    },
+    {
+      "code": "OBG_OBS",
+      "name": "产科",
+      "level": 2,
+      "parentCode": "OBG",
+      "parentName": "妇产科",
+      "aliases": [
+        "围产科",
+        "产前门诊"
+      ],
+      "bodyParts": [
+        "bp_lower_abdomen",
+        "bp_pelvis"
+      ],
+      "scope": "孕期检查、妊娠并发症、分娩与产后问题",
+      "typicalSymptoms": [
+        "停经",
+        "孕期不适",
+        "胎动异常",
+        "产后不适"
+      ]
+    },
+    {
+      "code": "OBG_REPRO",
+      "name": "生殖医学科",
+      "level": 2,
+      "parentCode": "OBG",
+      "parentName": "妇产科",
+      "aliases": [
+        "不孕不育科",
+        "生殖中心"
+      ],
+      "bodyParts": [
+        "bp_pelvis"
+      ],
+      "scope": "不孕不育评估与辅助生殖",
+      "typicalSymptoms": [
+        "备孕困难",
+        "不孕",
+        "反复流产"
+      ]
+    },
+    {
+      "code": "PED",
+      "name": "儿科",
+      "level": 1,
+      "parentCode": null,
+      "aliases": [
+        "小儿科"
+      ],
+      "bodyParts": [
+        "bp_systemic"
+      ],
+      "scope": "14 岁以下儿童各类疾病的初诊与分流"
+    },
+    {
+      "code": "PED_INT",
+      "name": "儿内科",
+      "level": 2,
+      "parentCode": "PED",
+      "parentName": "儿科",
+      "aliases": [
+        "小儿内科",
+        "儿科门诊"
+      ],
+      "bodyParts": [
+        "bp_systemic"
+      ],
+      "scope": "儿童发热、咳嗽、腹泻、生长发育、常见感染性疾病",
+      "typicalSymptoms": [
+        "小儿发热",
+        "小儿咳嗽",
+        "小儿腹泻",
+        "小儿呕吐",
+        "小儿皮疹"
+      ]
+    },
+    {
+      "code": "PED_SUR",
+      "name": "小儿外科",
+      "level": 2,
+      "parentCode": "PED",
+      "parentName": "儿科",
+      "aliases": [
+        "儿外科"
+      ],
+      "bodyParts": [
+        "bp_lower_abdomen",
+        "bp_pelvis"
+      ],
+      "scope": "小儿疝气、隐睾、包茎、先天畸形、小儿外伤",
+      "typicalSymptoms": [
+        "小儿腹股沟包块",
+        "小儿外伤",
+        "小儿排尿异常"
+      ]
+    },
+    {
+      "code": "PED_NEO",
+      "name": "新生儿科",
+      "level": 2,
+      "parentCode": "PED",
+      "parentName": "儿科",
+      "aliases": [
+        "新生儿病房"
+      ],
+      "bodyParts": [
+        "bp_systemic"
+      ],
+      "scope": "出生 28 天内新生儿疾病",
+      "typicalSymptoms": [
+        "新生儿黄疸",
+        "新生儿吐奶",
+        "新生儿体重不增"
+      ]
+    },
+    {
+      "code": "EENT",
+      "name": "五官科",
+      "level": 1,
+      "parentCode": null,
+      "aliases": [
+        "耳鼻喉眼科"
+      ],
+      "bodyParts": [
+        "bp_eye",
+        "bp_ent",
+        "bp_mouth"
+      ],
+      "scope": "眼、耳鼻咽喉、口腔疾病的初诊与分流"
+    },
+    {
+      "code": "EENT_OPH",
+      "name": "眼科",
+      "level": 2,
+      "parentCode": "EENT",
+      "parentName": "五官科",
+      "aliases": [
+        "眼病科"
+      ],
+      "bodyParts": [
+        "bp_eye"
+      ],
+      "scope": "近视、白内障、青光眼、结膜炎、干眼症、眼底病变、眼外伤",
+      "typicalSymptoms": [
+        "视力下降",
+        "眼红",
+        "眼痛",
+        "眼干",
+        "眼痒",
+        "视物模糊",
+        "飞蚊症",
+        "眼睛异物感"
+      ]
+    },
+    {
+      "code": "EENT_ENT",
+      "name": "耳鼻咽喉科",
+      "level": 2,
+      "parentCode": "EENT",
+      "parentName": "五官科",
+      "aliases": [
+        "耳鼻喉科",
+        "五官科门诊"
+      ],
+      "bodyParts": [
+        "bp_ent",
+        "bp_neck",
+        "bp_head"
+      ],
+      "scope": "鼻炎、鼻窦炎、中耳炎、扁桃体炎、咽喉炎、听力下降、耳鸣、鼻出血、打鼾",
+      "typicalSymptoms": [
+        "鼻塞",
+        "流涕",
+        "鼻出血",
+        "咽痛",
+        "声音嘶哑",
+        "耳鸣",
+        "听力下降",
+        "耳痛",
+        "打鼾",
+        "咽喉异物感"
+      ]
+    },
+    {
+      "code": "EENT_STO",
+      "name": "口腔科",
+      "level": 2,
+      "parentCode": "EENT",
+      "parentName": "五官科",
+      "aliases": [
+        "牙科",
+        "口腔医学科"
+      ],
+      "bodyParts": [
+        "bp_mouth"
+      ],
+      "scope": "龋齿、牙周炎、智齿、口腔溃疡、颞下颌关节紊乱、义齿修复、正畸",
+      "typicalSymptoms": [
+        "牙痛",
+        "牙龈出血",
+        "牙龈肿痛",
+        "口腔溃疡",
+        "张口受限",
+        "牙齿松动"
+      ]
+    },
+    {
+      "code": "DERM",
+      "name": "皮肤科",
+      "level": 1,
+      "parentCode": null,
+      "aliases": [
+        "皮肤性病科"
+      ],
+      "bodyParts": [
+        "bp_skin"
+      ],
+      "scope": "皮肤与性传播疾病的初诊与分流"
+    },
+    {
+      "code": "DERM_SKIN",
+      "name": "皮肤科",
+      "level": 2,
+      "parentCode": "DERM",
+      "parentName": "皮肤科",
+      "aliases": [
+        "皮肤病科"
+      ],
+      "bodyParts": [
+        "bp_skin",
+        "bp_head"
+      ],
+      "scope": "湿疹、荨麻疹、痤疮、白癜风、带状疱疹、脱发、真菌感染、皮炎",
+      "typicalSymptoms": [
+        "皮疹",
+        "皮肤瘙痒",
+        "红斑",
+        "水疱",
+        "脱发",
+        "痤疮",
+        "脱皮",
+        "皮肤肿物"
+      ]
+    },
+    {
+      "code": "DERM_STD",
+      "name": "性病科",
+      "level": 2,
+      "parentCode": "DERM",
+      "parentName": "皮肤科",
+      "aliases": [
+        "性传播疾病科"
+      ],
+      "bodyParts": [
+        "bp_pelvis",
+        "bp_skin"
+      ],
+      "scope": "梅毒、尖锐湿疣、生殖器疱疹等性传播疾病",
+      "typicalSymptoms": [
+        "外生殖器皮损",
+        "尿道分泌物异常"
+      ]
+    },
+    {
+      "code": "PSY",
+      "name": "精神心理科",
+      "level": 1,
+      "parentCode": null,
+      "aliases": [
+        "心理科",
+        "精神科"
+      ],
+      "bodyParts": [
+        "bp_mental"
+      ],
+      "scope": "情绪、睡眠与精神心理问题的初诊与分流"
+    },
+    {
+      "code": "PSY_CLIN",
+      "name": "临床心理科",
+      "level": 2,
+      "parentCode": "PSY",
+      "parentName": "精神心理科",
+      "aliases": [
+        "心理咨询科",
+        "心身医学科"
+      ],
+      "bodyParts": [
+        "bp_mental"
+      ],
+      "scope": "焦虑、抑郁、强迫、应激相关障碍、心理咨询",
+      "typicalSymptoms": [
+        "情绪低落",
+        "焦虑紧张",
+        "兴趣减退",
+        "反复担心",
+        "躯体不适查无异常"
+      ]
+    },
+    {
+      "code": "PSY_SLEEP",
+      "name": "睡眠医学科",
+      "level": 2,
+      "parentCode": "PSY",
+      "parentName": "精神心理科",
+      "aliases": [
+        "睡眠门诊"
+      ],
+      "bodyParts": [
+        "bp_mental"
+      ],
+      "scope": "失眠、睡眠节律紊乱、睡眠呼吸问题的评估",
+      "typicalSymptoms": [
+        "入睡困难",
+        "早醒",
+        "多梦",
+        "白天嗜睡"
+      ]
+    },
+    {
+      "code": "ONC",
+      "name": "肿瘤科",
+      "level": 1,
+      "parentCode": null,
+      "aliases": [
+        "肿瘤中心"
+      ],
+      "bodyParts": [
+        "bp_systemic"
+      ],
+      "scope": "恶性肿瘤的综合治疗与随访"
+    },
+    {
+      "code": "ONC_MED",
+      "name": "肿瘤内科",
+      "level": 2,
+      "parentCode": "ONC",
+      "parentName": "肿瘤科",
+      "aliases": [
+        "化疗科",
+        "肿瘤化疗科"
+      ],
+      "bodyParts": [
+        "bp_systemic"
+      ],
+      "scope": "已确诊恶性肿瘤的药物治疗与复查随访",
+      "typicalSymptoms": [
+        "已确诊肿瘤复诊",
+        "化疗后不适"
+      ]
+    },
+    {
+      "code": "ONC_RAD",
+      "name": "放疗科",
+      "level": 2,
+      "parentCode": "ONC",
+      "parentName": "肿瘤科",
+      "aliases": [
+        "放射治疗科"
+      ],
+      "bodyParts": [
+        "bp_systemic"
+      ],
+      "scope": "恶性肿瘤的放射治疗",
+      "typicalSymptoms": [
+        "放疗评估",
+        "放疗后反应"
+      ]
+    },
+    {
+      "code": "REHAB",
+      "name": "康复医学科",
+      "level": 1,
+      "parentCode": null,
+      "aliases": [
+        "康复科",
+        "理疗科"
+      ],
+      "bodyParts": [
+        "bp_upper_limb",
+        "bp_lower_limb",
+        "bp_back"
+      ],
+      "scope": "脑卒中后康复、术后功能康复、慢性疼痛物理治疗、运动损伤康复",
+      "typicalSymptoms": [
+        "术后功能障碍",
+        "偏瘫康复",
+        "肌肉萎缩",
+        "关节僵硬"
+      ]
+    },
+    {
+      "code": "PAIN",
+      "name": "疼痛科",
+      "level": 1,
+      "parentCode": null,
+      "aliases": [
+        "疼痛门诊"
+      ],
+      "bodyParts": [
+        "bp_back",
+        "bp_neck",
+        "bp_upper_limb",
+        "bp_lower_limb"
+      ],
+      "scope": "慢性顽固性疼痛、神经病理性疼痛、带状疱疹后神经痛、颈腰痛的微创介入治疗",
+      "typicalSymptoms": [
+        "慢性疼痛",
+        "神经痛",
+        "带状疱疹后疼痛",
+        "顽固性头痛"
+      ]
+    },
+    {
+      "code": "TCM",
+      "name": "中医科",
+      "level": 1,
+      "parentCode": null,
+      "aliases": [
+        "中医门诊",
+        "国医堂"
+      ],
+      "bodyParts": [
+        "bp_systemic"
+      ],
+      "scope": "中医辨证论治、慢病调理、亚健康调养"
+    },
+    {
+      "code": "TCM_INT",
+      "name": "中医内科",
+      "level": 2,
+      "parentCode": "TCM",
+      "parentName": "中医科",
+      "aliases": [
+        "中医综合科"
+      ],
+      "bodyParts": [
+        "bp_systemic"
+      ],
+      "scope": "中医药调理慢性病、脾胃失调、体虚乏力、失眠",
+      "typicalSymptoms": [
+        "体虚",
+        "反复调理",
+        "中药调养需求"
+      ]
+    },
+    {
+      "code": "TCM_ACU",
+      "name": "针灸推拿科",
+      "level": 2,
+      "parentCode": "TCM",
+      "parentName": "中医科",
+      "aliases": [
+        "针灸科",
+        "推拿科",
+        "康复理疗"
+      ],
+      "bodyParts": [
+        "bp_back",
+        "bp_neck",
+        "bp_upper_limb",
+        "bp_lower_limb"
+      ],
+      "scope": "针灸、推拿治疗颈肩腰腿痛、面瘫、软组织劳损",
+      "typicalSymptoms": [
+        "颈肩僵硬",
+        "腰肌劳损",
+        "面瘫",
+        "落枕"
+      ]
+    },
+    {
+      "code": "TCM_ORTHO",
+      "name": "中医骨伤科",
+      "level": 2,
+      "parentCode": "TCM",
+      "parentName": "中医科",
+      "aliases": [
+        "中医正骨科"
+      ],
+      "bodyParts": [
+        "bp_back",
+        "bp_upper_limb",
+        "bp_lower_limb"
+      ],
+      "scope": "中医手法治疗骨关节与软组织损伤",
+      "typicalSymptoms": [
+        "扭伤",
+        "关节错位",
+        "陈旧性损伤"
+      ]
+    },
+    {
+      "code": "GP",
+      "name": "全科医学科",
+      "level": 1,
+      "parentCode": null,
+      "aliases": [
+        "全科门诊",
+        "综合门诊"
+      ],
+      "bodyParts": [
+        "bp_systemic"
+      ],
+      "scope": "症状涉及多个系统、无法明确归属单一专科时的首诊与转诊评估",
+      "typicalSymptoms": [
+        "多系统症状",
+        "症状不典型",
+        "不知道该看哪个科"
+      ]
+    }
+  ]
+}
