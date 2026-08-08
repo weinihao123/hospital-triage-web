@@ -1,0 +1,4511 @@
+{
+  "version": "builtin-1.0",
+  "note": "问题树是患者端点选流程的唯一真源。basics 为会话开始的基本信息，不计入追问轮次。bodyParts 为第一层，symptoms 为第二层，slots 为追问槽位库。",
+  "basics": [
+    {
+      "id": "basic_age",
+      "question": "患者的年龄段",
+      "type": "single",
+      "required": true,
+      "options": [
+        {
+          "label": "不满 1 岁",
+          "value": "infant"
+        },
+        {
+          "label": "1 到 6 岁",
+          "value": "toddler"
+        },
+        {
+          "label": "7 到 14 岁",
+          "value": "child"
+        },
+        {
+          "label": "15 到 17 岁",
+          "value": "teen"
+        },
+        {
+          "label": "18 到 40 岁",
+          "value": "young"
+        },
+        {
+          "label": "41 到 65 岁",
+          "value": "middle"
+        },
+        {
+          "label": "65 岁以上",
+          "value": "senior"
+        }
+      ]
+    },
+    {
+      "id": "basic_gender",
+      "question": "患者性别",
+      "type": "single",
+      "required": true,
+      "options": [
+        {
+          "label": "女",
+          "value": "female"
+        },
+        {
+          "label": "男",
+          "value": "male"
+        }
+      ]
+    }
+  ],
+  "bodyParts": [
+    {
+      "id": "bp_head",
+      "label": "头面部",
+      "icon": "🧠",
+      "desc": "头痛头晕、面部问题",
+      "symptoms": [
+        "sy_headache",
+        "sy_dizzy",
+        "sy_vertigo",
+        "sy_face_numb",
+        "sy_facial_palsy",
+        "sy_head_trauma",
+        "sy_memory_loss",
+        "sy_seizure",
+        "sy_syncope",
+        "sy_speech_slur"
+      ]
+    },
+    {
+      "id": "bp_neck",
+      "label": "颈部",
+      "icon": "🦴",
+      "desc": "脖子疼、颈部肿块",
+      "symptoms": [
+        "sy_neck_pain",
+        "sy_neck_mass",
+        "sy_thyroid_swell",
+        "sy_stiff_neck"
+      ]
+    },
+    {
+      "id": "bp_chest",
+      "label": "胸部",
+      "icon": "🫁",
+      "desc": "胸痛心慌、咳嗽气喘",
+      "symptoms": [
+        "sy_chest_pain",
+        "sy_chest_tight",
+        "sy_palpitation",
+        "sy_dyspnea",
+        "sy_cough",
+        "sy_sputum",
+        "sy_hemoptysis",
+        "sy_wheeze",
+        "sy_breast_mass",
+        "sy_breast_pain",
+        "sy_chest_trauma"
+      ]
+    },
+    {
+      "id": "bp_upper_abdomen",
+      "label": "上腹部",
+      "icon": "🍽️",
+      "desc": "胃疼胃胀、恶心反酸",
+      "symptoms": [
+        "sy_epigastric_pain",
+        "sy_acid_reflux",
+        "sy_bloating",
+        "sy_nausea_vomit",
+        "sy_appetite_loss",
+        "sy_ruq_pain",
+        "sy_jaundice",
+        "sy_melena",
+        "sy_dysphagia"
+      ]
+    },
+    {
+      "id": "bp_lower_abdomen",
+      "label": "下腹部",
+      "icon": "🌀",
+      "desc": "肚子疼、拉肚子便秘",
+      "symptoms": [
+        "sy_lower_abd_pain",
+        "sy_diarrhea",
+        "sy_constipation",
+        "sy_hematochezia",
+        "sy_abd_mass",
+        "sy_groin_mass",
+        "sy_no_stool_gas"
+      ]
+    },
+    {
+      "id": "bp_back",
+      "label": "腰背部",
+      "icon": "🦵",
+      "desc": "腰疼背疼",
+      "symptoms": [
+        "sy_low_back_pain",
+        "sy_back_pain",
+        "sy_flank_colic",
+        "sy_back_trauma",
+        "sy_back_soreness"
+      ]
+    },
+    {
+      "id": "bp_pelvis",
+      "label": "盆腔与会阴",
+      "icon": "🚻",
+      "desc": "排尿、肛门、妇科问题",
+      "symptoms": [
+        "sy_dysuria",
+        "sy_urine_difficulty",
+        "sy_hematuria",
+        "sy_anal_pain",
+        "sy_anal_mass",
+        "sy_vaginal_discharge",
+        "sy_vulvar_itch",
+        "sy_vaginal_bleeding",
+        "sy_menstrual_disorder",
+        "sy_dysmenorrhea",
+        "sy_scrotal_pain",
+        "sy_genital_lesion",
+        "sy_infertility"
+      ]
+    },
+    {
+      "id": "bp_upper_limb",
+      "label": "上肢肩手",
+      "icon": "💪",
+      "desc": "肩膀胳膊手部不适",
+      "symptoms": [
+        "sy_shoulder_pain",
+        "sy_arm_numb",
+        "sy_tremor",
+        "sy_arm_weak",
+        "sy_joint_swell",
+        "sy_hand_trauma"
+      ]
+    },
+    {
+      "id": "bp_lower_limb",
+      "label": "下肢与足",
+      "icon": "🦶",
+      "desc": "腿脚不适",
+      "symptoms": [
+        "sy_knee_pain",
+        "sy_leg_numb",
+        "sy_leg_edema",
+        "sy_leg_weak",
+        "sy_varicose",
+        "sy_heel_pain",
+        "sy_leg_trauma",
+        "sy_claudication"
+      ]
+    },
+    {
+      "id": "bp_skin",
+      "label": "皮肤毛发",
+      "icon": "🧴",
+      "desc": "长疹子、痒、脱发",
+      "symptoms": [
+        "sy_rash",
+        "sy_itch",
+        "sy_hair_loss",
+        "sy_acne",
+        "sy_skin_mass",
+        "sy_blister",
+        "sy_burn",
+        "sy_petechiae"
+      ]
+    },
+    {
+      "id": "bp_eye",
+      "label": "眼睛",
+      "icon": "👁️",
+      "desc": "视力与眼部不适",
+      "symptoms": [
+        "sy_vision_loss",
+        "sy_eye_red",
+        "sy_eye_pain",
+        "sy_eye_dry",
+        "sy_eye_itch",
+        "sy_blurred_vision",
+        "sy_eye_foreign",
+        "sy_floaters"
+      ]
+    },
+    {
+      "id": "bp_ent",
+      "label": "耳鼻咽喉",
+      "icon": "👂",
+      "desc": "鼻塞耳鸣嗓子疼",
+      "symptoms": [
+        "sy_nasal_congestion",
+        "sy_epistaxis",
+        "sy_sore_throat",
+        "sy_hoarseness",
+        "sy_tinnitus",
+        "sy_hearing_loss",
+        "sy_ear_pain",
+        "sy_snoring",
+        "sy_throat_foreign"
+      ]
+    },
+    {
+      "id": "bp_mouth",
+      "label": "口腔牙齿",
+      "icon": "🦷",
+      "desc": "牙疼、口腔问题",
+      "symptoms": [
+        "sy_toothache",
+        "sy_gum_bleed",
+        "sy_gum_swell",
+        "sy_oral_ulcer",
+        "sy_trismus",
+        "sy_tooth_loose",
+        "sy_halitosis"
+      ]
+    },
+    {
+      "id": "bp_systemic",
+      "label": "全身症状",
+      "icon": "🌡️",
+      "desc": "发烧乏力、消瘦水肿",
+      "symptoms": [
+        "sy_fever",
+        "sy_fatigue",
+        "sy_weight_loss",
+        "sy_polyuria",
+        "sy_edema",
+        "sy_night_sweat",
+        "sy_lymph_swell",
+        "sy_pallor",
+        "sy_heat_intolerance",
+        "sy_multi_joint_pain"
+      ]
+    },
+    {
+      "id": "bp_mental",
+      "label": "情绪与睡眠",
+      "icon": "🌙",
+      "desc": "睡不好、情绪问题",
+      "symptoms": [
+        "sy_depressed",
+        "sy_anxiety",
+        "sy_insomnia",
+        "sy_early_wake",
+        "sy_daytime_sleepy",
+        "sy_anhedonia"
+      ]
+    }
+  ],
+  "symptoms": [
+    {
+      "id": "sy_headache",
+      "label": "头痛",
+      "aliases": [
+        "头疼",
+        "脑袋疼",
+        "偏头痛",
+        "头胀痛"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_headache_type",
+        "slot_trauma",
+        "slot_accompany_head"
+      ]
+    },
+    {
+      "id": "sy_dizzy",
+      "label": "头晕",
+      "aliases": [
+        "头昏",
+        "昏昏沉沉",
+        "脑袋发懵"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_dizzy_type",
+        "slot_accompany_head"
+      ]
+    },
+    {
+      "id": "sy_vertigo",
+      "label": "眩晕天旋地转",
+      "aliases": [
+        "天旋地转",
+        "眩晕"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_dizzy_type",
+        "slot_accompany_ear"
+      ]
+    },
+    {
+      "id": "sy_face_numb",
+      "label": "面部麻木",
+      "aliases": [
+        "脸麻",
+        "面部感觉异常"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_onset_speed"
+      ]
+    },
+    {
+      "id": "sy_facial_palsy",
+      "label": "口眼歪斜",
+      "aliases": [
+        "面瘫",
+        "嘴歪",
+        "眼睛闭不上"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_onset_speed"
+      ]
+    },
+    {
+      "id": "sy_head_trauma",
+      "label": "头部受伤",
+      "aliases": [
+        "头部外伤",
+        "撞到头",
+        "头部磕碰"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_accompany_head"
+      ]
+    },
+    {
+      "id": "sy_memory_loss",
+      "label": "记忆力下降",
+      "aliases": [
+        "忘事",
+        "健忘",
+        "反应变慢"
+      ],
+      "slots": [
+        "slot_duration"
+      ]
+    },
+    {
+      "id": "sy_seizure",
+      "label": "抽搐发作",
+      "aliases": [
+        "抽风",
+        "痉挛",
+        "羊癫疯"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_seizure_conscious"
+      ]
+    },
+    {
+      "id": "sy_syncope",
+      "label": "晕倒过",
+      "aliases": [
+        "昏倒",
+        "晕厥",
+        "一过性失去知觉"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_syncope_trigger"
+      ]
+    },
+    {
+      "id": "sy_speech_slur",
+      "label": "说话不清楚",
+      "aliases": [
+        "言语不清",
+        "口齿不清",
+        "说话费劲"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_onset_speed"
+      ]
+    },
+    {
+      "id": "sy_neck_pain",
+      "label": "脖子疼",
+      "aliases": [
+        "颈部疼痛",
+        "颈肩痛",
+        "脖子僵"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_neck_radiate",
+        "slot_trauma"
+      ]
+    },
+    {
+      "id": "sy_neck_mass",
+      "label": "颈部肿块",
+      "aliases": [
+        "脖子上有包",
+        "颈部包块",
+        "脖子肿"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_mass_pain"
+      ]
+    },
+    {
+      "id": "sy_thyroid_swell",
+      "label": "甲状腺肿大",
+      "aliases": [
+        "大脖子",
+        "甲状腺结节"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_thyroid_symptom"
+      ]
+    },
+    {
+      "id": "sy_stiff_neck",
+      "label": "落枕转头困难",
+      "aliases": [
+        "落枕",
+        "脖子转不动"
+      ],
+      "slots": [
+        "slot_duration"
+      ]
+    },
+    {
+      "id": "sy_chest_pain",
+      "label": "胸痛",
+      "aliases": [
+        "胸口疼",
+        "心口疼",
+        "胸部疼痛",
+        "胸口闷痛"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_chest_trigger",
+        "slot_pain_nature",
+        "slot_chest_radiate"
+      ]
+    },
+    {
+      "id": "sy_chest_tight",
+      "label": "胸闷",
+      "aliases": [
+        "胸口发闷",
+        "喘不上气",
+        "憋气"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_chest_trigger",
+        "slot_accompany_chest"
+      ]
+    },
+    {
+      "id": "sy_palpitation",
+      "label": "心慌心悸",
+      "aliases": [
+        "心慌",
+        "心跳快",
+        "心悸",
+        "心突突跳"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_chest_trigger",
+        "slot_accompany_chest"
+      ]
+    },
+    {
+      "id": "sy_dyspnea",
+      "label": "呼吸困难",
+      "aliases": [
+        "上不来气",
+        "气短",
+        "喘不过气"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_chest_trigger",
+        "slot_accompany_chest"
+      ]
+    },
+    {
+      "id": "sy_cough",
+      "label": "咳嗽",
+      "aliases": [
+        "咳",
+        "老咳嗽"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_cough_type",
+        "slot_fever_with"
+      ]
+    },
+    {
+      "id": "sy_sputum",
+      "label": "咳痰",
+      "aliases": [
+        "有痰",
+        "吐痰"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_sputum_color"
+      ]
+    },
+    {
+      "id": "sy_hemoptysis",
+      "label": "咳血痰中带血",
+      "aliases": [
+        "咯血",
+        "痰里有血"
+      ],
+      "slots": [
+        "slot_duration"
+      ]
+    },
+    {
+      "id": "sy_wheeze",
+      "label": "喘息有哮鸣",
+      "aliases": [
+        "气喘",
+        "拉风箱",
+        "哮喘发作"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_wheeze_trigger"
+      ]
+    },
+    {
+      "id": "sy_breast_mass",
+      "label": "乳房包块",
+      "aliases": [
+        "乳房有硬块",
+        "乳腺结节"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_mass_pain"
+      ]
+    },
+    {
+      "id": "sy_breast_pain",
+      "label": "乳房胀痛",
+      "aliases": [
+        "乳房疼",
+        "乳腺疼痛"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_menstrual_relation"
+      ]
+    },
+    {
+      "id": "sy_chest_trauma",
+      "label": "胸部受伤",
+      "aliases": [
+        "胸部外伤",
+        "肋骨撞伤"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_breath_pain"
+      ]
+    },
+    {
+      "id": "sy_epigastric_pain",
+      "label": "上腹胃部疼痛",
+      "aliases": [
+        "胃疼",
+        "胃痛",
+        "心窝疼",
+        "上腹痛"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_meal_relation",
+        "slot_pain_nature"
+      ]
+    },
+    {
+      "id": "sy_acid_reflux",
+      "label": "反酸烧心",
+      "aliases": [
+        "烧心",
+        "胃酸",
+        "反酸水",
+        "胃灼热"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_meal_relation",
+        "slot_posture_relation"
+      ]
+    },
+    {
+      "id": "sy_bloating",
+      "label": "腹胀",
+      "aliases": [
+        "肚子胀",
+        "胃胀",
+        "胀气"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_meal_relation"
+      ]
+    },
+    {
+      "id": "sy_nausea_vomit",
+      "label": "恶心呕吐",
+      "aliases": [
+        "想吐",
+        "呕吐",
+        "反胃"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_vomit_content",
+        "slot_accompany_head"
+      ]
+    },
+    {
+      "id": "sy_appetite_loss",
+      "label": "食欲下降",
+      "aliases": [
+        "吃不下",
+        "没胃口",
+        "厌食"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_weight_change"
+      ]
+    },
+    {
+      "id": "sy_ruq_pain",
+      "label": "右上腹疼痛",
+      "aliases": [
+        "右上腹痛",
+        "右肋下疼"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_meal_relation",
+        "slot_jaundice_with"
+      ]
+    },
+    {
+      "id": "sy_jaundice",
+      "label": "皮肤眼白发黄",
+      "aliases": [
+        "黄疸",
+        "眼睛黄",
+        "皮肤黄"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_urine_color"
+      ]
+    },
+    {
+      "id": "sy_melena",
+      "label": "黑便柏油样便",
+      "aliases": [
+        "黑便",
+        "大便发黑"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_accompany_gi"
+      ]
+    },
+    {
+      "id": "sy_dysphagia",
+      "label": "吞咽困难",
+      "aliases": [
+        "咽不下去",
+        "噎",
+        "吞咽费劲"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_dysphagia_type"
+      ]
+    },
+    {
+      "id": "sy_lower_abd_pain",
+      "label": "下腹疼痛",
+      "aliases": [
+        "小肚子疼",
+        "下腹痛",
+        "小腹疼"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_abd_side",
+        "slot_pain_nature",
+        "slot_menstrual_relation"
+      ]
+    },
+    {
+      "id": "sy_diarrhea",
+      "label": "腹泻拉肚子",
+      "aliases": [
+        "拉肚子",
+        "腹泻",
+        "大便稀"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_stool_frequency",
+        "slot_fever_with"
+      ]
+    },
+    {
+      "id": "sy_constipation",
+      "label": "便秘",
+      "aliases": [
+        "大便干",
+        "解不出大便",
+        "排便困难"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_stool_blood"
+      ]
+    },
+    {
+      "id": "sy_hematochezia",
+      "label": "便血",
+      "aliases": [
+        "大便带血",
+        "便后滴血"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_blood_pattern"
+      ]
+    },
+    {
+      "id": "sy_abd_mass",
+      "label": "腹部摸到包块",
+      "aliases": [
+        "肚子里有包块",
+        "腹部肿物"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_mass_pain"
+      ]
+    },
+    {
+      "id": "sy_groin_mass",
+      "label": "腹股沟包块",
+      "aliases": [
+        "大腿根有包",
+        "疝气"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_mass_reducible"
+      ]
+    },
+    {
+      "id": "sy_no_stool_gas",
+      "label": "不排便不排气",
+      "aliases": [
+        "停止排气排便",
+        "肚子胀不通气"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_accompany_gi"
+      ]
+    },
+    {
+      "id": "sy_low_back_pain",
+      "label": "腰痛",
+      "aliases": [
+        "腰疼",
+        "腰酸背痛",
+        "闪腰"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_back_radiate",
+        "slot_trauma",
+        "slot_urine_with"
+      ]
+    },
+    {
+      "id": "sy_back_pain",
+      "label": "背部疼痛",
+      "aliases": [
+        "背疼",
+        "后背痛"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_trauma",
+        "slot_breath_pain"
+      ]
+    },
+    {
+      "id": "sy_flank_colic",
+      "label": "腰腹绞痛",
+      "aliases": [
+        "肾绞痛",
+        "腰部剧烈绞痛"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_urine_with"
+      ]
+    },
+    {
+      "id": "sy_back_trauma",
+      "label": "腰背受伤",
+      "aliases": [
+        "腰部外伤",
+        "摔伤腰"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_leg_numb_with"
+      ]
+    },
+    {
+      "id": "sy_back_soreness",
+      "label": "腰部酸胀乏力",
+      "aliases": [
+        "腰酸",
+        "腰发软"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_urine_with"
+      ]
+    },
+    {
+      "id": "sy_dysuria",
+      "label": "尿频尿急尿痛",
+      "aliases": [
+        "尿频",
+        "尿急",
+        "尿痛",
+        "小便疼",
+        "老想上厕所"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_fever_with",
+        "slot_urine_blood"
+      ]
+    },
+    {
+      "id": "sy_urine_difficulty",
+      "label": "排尿困难尿不尽",
+      "aliases": [
+        "尿不出来",
+        "尿不尽",
+        "尿线细"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_night_urine"
+      ]
+    },
+    {
+      "id": "sy_hematuria",
+      "label": "血尿",
+      "aliases": [
+        "尿血",
+        "小便发红"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_urine_pain_with"
+      ]
+    },
+    {
+      "id": "sy_anal_pain",
+      "label": "肛门疼痛",
+      "aliases": [
+        "屁股眼疼",
+        "肛门痛",
+        "排便疼"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_stool_blood"
+      ]
+    },
+    {
+      "id": "sy_anal_mass",
+      "label": "肛门肿物脱出",
+      "aliases": [
+        "痔疮",
+        "肛门有东西",
+        "肛门脱出"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_stool_blood"
+      ]
+    },
+    {
+      "id": "sy_vaginal_discharge",
+      "label": "白带异常",
+      "aliases": [
+        "白带多",
+        "白带发黄",
+        "分泌物异常"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_vulvar_itch_with"
+      ]
+    },
+    {
+      "id": "sy_vulvar_itch",
+      "label": "外阴瘙痒",
+      "aliases": [
+        "下面痒",
+        "外阴痒"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_vaginal_discharge_with"
+      ]
+    },
+    {
+      "id": "sy_vaginal_bleeding",
+      "label": "非经期阴道出血",
+      "aliases": [
+        "不规则出血",
+        "同房后出血"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_pregnancy_status"
+      ]
+    },
+    {
+      "id": "sy_menstrual_disorder",
+      "label": "月经不调",
+      "aliases": [
+        "月经紊乱",
+        "经期不准",
+        "闭经"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_menstrual_pattern"
+      ]
+    },
+    {
+      "id": "sy_dysmenorrhea",
+      "label": "痛经",
+      "aliases": [
+        "来月经肚子疼",
+        "经期腹痛"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_dysmenorrhea_degree"
+      ]
+    },
+    {
+      "id": "sy_scrotal_pain",
+      "label": "阴囊睾丸肿痛",
+      "aliases": [
+        "蛋疼",
+        "睾丸疼",
+        "阴囊肿"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_trauma"
+      ]
+    },
+    {
+      "id": "sy_genital_lesion",
+      "label": "外生殖器皮损",
+      "aliases": [
+        "下体长东西",
+        "生殖器溃疡",
+        "生殖器赘生物"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_exposure_history"
+      ]
+    },
+    {
+      "id": "sy_infertility",
+      "label": "备孕困难不孕",
+      "aliases": [
+        "怀不上",
+        "不孕",
+        "不育"
+      ],
+      "slots": [
+        "slot_duration"
+      ]
+    },
+    {
+      "id": "sy_shoulder_pain",
+      "label": "肩膀疼",
+      "aliases": [
+        "肩周炎",
+        "肩痛",
+        "抬不起胳膊"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_motion_limit",
+        "slot_trauma"
+      ]
+    },
+    {
+      "id": "sy_arm_numb",
+      "label": "手臂发麻",
+      "aliases": [
+        "胳膊麻",
+        "手麻"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_neck_radiate"
+      ]
+    },
+    {
+      "id": "sy_tremor",
+      "label": "手抖",
+      "aliases": [
+        "手部震颤",
+        "拿东西发抖"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_tremor_when"
+      ]
+    },
+    {
+      "id": "sy_arm_weak",
+      "label": "上肢无力",
+      "aliases": [
+        "胳膊没劲",
+        "手上没劲"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_onset_speed"
+      ]
+    },
+    {
+      "id": "sy_joint_swell",
+      "label": "关节红肿疼痛",
+      "aliases": [
+        "关节肿",
+        "手指关节疼",
+        "关节炎"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_joint_count",
+        "slot_morning_stiff"
+      ]
+    },
+    {
+      "id": "sy_hand_trauma",
+      "label": "手部受伤",
+      "aliases": [
+        "手外伤",
+        "手指划伤",
+        "手指扭伤"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_wound_open"
+      ]
+    },
+    {
+      "id": "sy_knee_pain",
+      "label": "膝盖疼",
+      "aliases": [
+        "膝关节痛",
+        "腿疼",
+        "上下楼疼"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_motion_limit",
+        "slot_trauma"
+      ]
+    },
+    {
+      "id": "sy_leg_numb",
+      "label": "腿麻",
+      "aliases": [
+        "下肢麻木",
+        "脚麻"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_back_radiate"
+      ]
+    },
+    {
+      "id": "sy_leg_edema",
+      "label": "下肢水肿",
+      "aliases": [
+        "腿肿",
+        "脚肿",
+        "浮肿"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_edema_side",
+        "slot_accompany_chest"
+      ]
+    },
+    {
+      "id": "sy_leg_weak",
+      "label": "下肢无力",
+      "aliases": [
+        "腿没劲",
+        "走路发软"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_onset_speed"
+      ]
+    },
+    {
+      "id": "sy_varicose",
+      "label": "下肢青筋凸起",
+      "aliases": [
+        "静脉曲张",
+        "腿上血管鼓"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_edema_side"
+      ]
+    },
+    {
+      "id": "sy_heel_pain",
+      "label": "足跟痛",
+      "aliases": [
+        "脚后跟疼",
+        "足底筋膜炎"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_morning_first_step"
+      ]
+    },
+    {
+      "id": "sy_leg_trauma",
+      "label": "腿脚受伤",
+      "aliases": [
+        "崴脚",
+        "腿部外伤",
+        "脚扭了"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_weight_bearing"
+      ]
+    },
+    {
+      "id": "sy_claudication",
+      "label": "走一段路腿痛需休息",
+      "aliases": [
+        "间歇性跛行",
+        "走路腿疼歇一会好"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_limb_cold"
+      ]
+    },
+    {
+      "id": "sy_rash",
+      "label": "皮疹",
+      "aliases": [
+        "起疹子",
+        "长红点",
+        "皮肤起包"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_itch_degree",
+        "slot_rash_range"
+      ]
+    },
+    {
+      "id": "sy_itch",
+      "label": "皮肤瘙痒",
+      "aliases": [
+        "身上痒",
+        "浑身痒"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_rash_with"
+      ]
+    },
+    {
+      "id": "sy_hair_loss",
+      "label": "脱发",
+      "aliases": [
+        "掉头发",
+        "头发稀疏",
+        "斑秃"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_hair_pattern"
+      ]
+    },
+    {
+      "id": "sy_acne",
+      "label": "痤疮长痘",
+      "aliases": [
+        "青春痘",
+        "长痘痘",
+        "粉刺"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_acne_range"
+      ]
+    },
+    {
+      "id": "sy_skin_mass",
+      "label": "皮肤肿物",
+      "aliases": [
+        "皮肤上长包",
+        "脂肪瘤",
+        "痣变化"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_mass_change"
+      ]
+    },
+    {
+      "id": "sy_blister",
+      "label": "皮肤水疱",
+      "aliases": [
+        "起水泡",
+        "疱疹"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_blister_pain"
+      ]
+    },
+    {
+      "id": "sy_burn",
+      "label": "烧伤烫伤",
+      "aliases": [
+        "烫伤",
+        "烧伤",
+        "开水烫"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_burn_area"
+      ]
+    },
+    {
+      "id": "sy_petechiae",
+      "label": "皮下出血点淤斑",
+      "aliases": [
+        "出血点",
+        "皮下淤青",
+        "紫癜"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_bleed_other"
+      ]
+    },
+    {
+      "id": "sy_vision_loss",
+      "label": "视力下降",
+      "aliases": [
+        "看不清",
+        "视力模糊",
+        "眼睛看不见"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_vision_side",
+        "slot_onset_speed"
+      ]
+    },
+    {
+      "id": "sy_eye_red",
+      "label": "眼睛发红",
+      "aliases": [
+        "红眼",
+        "眼睛充血"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_eye_discharge"
+      ]
+    },
+    {
+      "id": "sy_eye_pain",
+      "label": "眼睛疼",
+      "aliases": [
+        "眼痛",
+        "眼胀痛"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_vision_with"
+      ]
+    },
+    {
+      "id": "sy_eye_dry",
+      "label": "眼睛干涩",
+      "aliases": [
+        "干眼",
+        "眼睛发涩"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_dry_mouth_with"
+      ]
+    },
+    {
+      "id": "sy_eye_itch",
+      "label": "眼睛痒",
+      "aliases": [
+        "眼痒"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_allergy_season"
+      ]
+    },
+    {
+      "id": "sy_blurred_vision",
+      "label": "视物模糊变形",
+      "aliases": [
+        "看东西变形",
+        "视物模糊"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_vision_side"
+      ]
+    },
+    {
+      "id": "sy_eye_foreign",
+      "label": "眼睛异物感",
+      "aliases": [
+        "眼睛进东西",
+        "眼里有沙子感"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_trauma"
+      ]
+    },
+    {
+      "id": "sy_floaters",
+      "label": "飞蚊症眼前黑影",
+      "aliases": [
+        "眼前有黑点",
+        "飞蚊症",
+        "眼前飘东西"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_flash_light"
+      ]
+    },
+    {
+      "id": "sy_nasal_congestion",
+      "label": "鼻塞流涕",
+      "aliases": [
+        "鼻子不通",
+        "流鼻涕",
+        "鼻炎"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_nasal_type",
+        "slot_fever_with"
+      ]
+    },
+    {
+      "id": "sy_epistaxis",
+      "label": "鼻出血",
+      "aliases": [
+        "流鼻血"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_bleed_other"
+      ]
+    },
+    {
+      "id": "sy_sore_throat",
+      "label": "咽喉疼痛",
+      "aliases": [
+        "嗓子疼",
+        "咽痛",
+        "喉咙痛"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_fever_with",
+        "slot_swallow_pain"
+      ]
+    },
+    {
+      "id": "sy_hoarseness",
+      "label": "声音嘶哑",
+      "aliases": [
+        "嗓子哑",
+        "说话没声"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_neck_mass_with"
+      ]
+    },
+    {
+      "id": "sy_tinnitus",
+      "label": "耳鸣",
+      "aliases": [
+        "耳朵响",
+        "耳朵嗡嗡"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_hearing_with"
+      ]
+    },
+    {
+      "id": "sy_hearing_loss",
+      "label": "听力下降",
+      "aliases": [
+        "耳背",
+        "听不清",
+        "耳聋"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_onset_speed"
+      ]
+    },
+    {
+      "id": "sy_ear_pain",
+      "label": "耳朵疼",
+      "aliases": [
+        "耳痛",
+        "耳朵流水"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_ear_discharge"
+      ]
+    },
+    {
+      "id": "sy_snoring",
+      "label": "打鼾憋气",
+      "aliases": [
+        "打呼噜",
+        "睡觉憋气"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_daytime_sleepy_with"
+      ]
+    },
+    {
+      "id": "sy_throat_foreign",
+      "label": "咽喉异物感",
+      "aliases": [
+        "嗓子有东西",
+        "梅核气",
+        "总想清嗓"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_acid_with"
+      ]
+    },
+    {
+      "id": "sy_toothache",
+      "label": "牙痛",
+      "aliases": [
+        "牙疼",
+        "牙齿疼"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_tooth_trigger"
+      ]
+    },
+    {
+      "id": "sy_gum_bleed",
+      "label": "牙龈出血",
+      "aliases": [
+        "刷牙出血",
+        "牙龈渗血"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_bleed_other"
+      ]
+    },
+    {
+      "id": "sy_gum_swell",
+      "label": "牙龈肿痛",
+      "aliases": [
+        "牙龈肿",
+        "牙床肿"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_fever_with"
+      ]
+    },
+    {
+      "id": "sy_oral_ulcer",
+      "label": "口腔溃疡",
+      "aliases": [
+        "嘴里长泡",
+        "口疮"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_ulcer_recurrent"
+      ]
+    },
+    {
+      "id": "sy_trismus",
+      "label": "张口受限",
+      "aliases": [
+        "嘴张不开",
+        "下巴弹响"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_jaw_sound"
+      ]
+    },
+    {
+      "id": "sy_tooth_loose",
+      "label": "牙齿松动",
+      "aliases": [
+        "牙松了",
+        "牙齿要掉"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_gum_condition"
+      ]
+    },
+    {
+      "id": "sy_halitosis",
+      "label": "口臭",
+      "aliases": [
+        "嘴里有味",
+        "口气重"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_gi_with"
+      ]
+    },
+    {
+      "id": "sy_fever",
+      "label": "发热",
+      "aliases": [
+        "发烧",
+        "体温高",
+        "低烧"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_fever_range",
+        "slot_fever_accompany"
+      ]
+    },
+    {
+      "id": "sy_fatigue",
+      "label": "乏力疲倦",
+      "aliases": [
+        "没劲",
+        "疲劳",
+        "浑身没力气"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_weight_change"
+      ]
+    },
+    {
+      "id": "sy_weight_loss",
+      "label": "体重明显下降",
+      "aliases": [
+        "消瘦",
+        "变瘦",
+        "掉秤"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_appetite_with"
+      ]
+    },
+    {
+      "id": "sy_polyuria",
+      "label": "多饮多尿",
+      "aliases": [
+        "老口渴",
+        "喝水多尿多"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_weight_change"
+      ]
+    },
+    {
+      "id": "sy_edema",
+      "label": "全身水肿",
+      "aliases": [
+        "浮肿",
+        "眼皮肿",
+        "身上肿"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_edema_site",
+        "slot_urine_foam"
+      ]
+    },
+    {
+      "id": "sy_night_sweat",
+      "label": "盗汗",
+      "aliases": [
+        "夜里出汗",
+        "睡觉出汗"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_fever_with"
+      ]
+    },
+    {
+      "id": "sy_lymph_swell",
+      "label": "淋巴结肿大",
+      "aliases": [
+        "淋巴结肿",
+        "腋下有包",
+        "脖子淋巴结"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_mass_pain"
+      ]
+    },
+    {
+      "id": "sy_pallor",
+      "label": "面色苍白",
+      "aliases": [
+        "脸色白",
+        "贫血貌"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_dizzy_with"
+      ]
+    },
+    {
+      "id": "sy_heat_intolerance",
+      "label": "怕热多汗心慌",
+      "aliases": [
+        "怕热",
+        "容易出汗"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_weight_change"
+      ]
+    },
+    {
+      "id": "sy_multi_joint_pain",
+      "label": "多关节疼痛",
+      "aliases": [
+        "浑身关节疼",
+        "游走性关节痛"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_joint_count",
+        "slot_morning_stiff"
+      ]
+    },
+    {
+      "id": "sy_depressed",
+      "label": "情绪低落",
+      "aliases": [
+        "心情不好",
+        "抑郁",
+        "高兴不起来"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_mood_impact"
+      ]
+    },
+    {
+      "id": "sy_anxiety",
+      "label": "焦虑紧张",
+      "aliases": [
+        "紧张",
+        "心烦",
+        "总是担心"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_mood_impact"
+      ]
+    },
+    {
+      "id": "sy_insomnia",
+      "label": "入睡困难",
+      "aliases": [
+        "睡不着",
+        "失眠"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_sleep_pattern"
+      ]
+    },
+    {
+      "id": "sy_early_wake",
+      "label": "早醒多梦",
+      "aliases": [
+        "醒得早",
+        "多梦",
+        "睡不踏实"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_sleep_pattern"
+      ]
+    },
+    {
+      "id": "sy_daytime_sleepy",
+      "label": "白天嗜睡",
+      "aliases": [
+        "白天犯困",
+        "总想睡"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_snoring_with"
+      ]
+    },
+    {
+      "id": "sy_anhedonia",
+      "label": "兴趣减退",
+      "aliases": [
+        "什么都不想干",
+        "提不起兴趣"
+      ],
+      "slots": [
+        "slot_duration",
+        "slot_mood_impact"
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "id": "slot_duration",
+      "question": "这个情况持续多久了",
+      "type": "single",
+      "options": [
+        {
+          "label": "今天刚出现",
+          "value": "today",
+          "deptWeights": {}
+        },
+        {
+          "label": "两三天",
+          "value": "days",
+          "deptWeights": {}
+        },
+        {
+          "label": "一两周",
+          "value": "weeks",
+          "deptWeights": {}
+        },
+        {
+          "label": "一个月以上",
+          "value": "months",
+          "deptWeights": {
+            "中医内科": 0.05
+          }
+        },
+        {
+          "label": "反复发作很久了",
+          "value": "chronic",
+          "deptWeights": {
+            "中医内科": 0.05,
+            "疼痛科": 0.05
+          }
+        },
+        {
+          "label": "说不清",
+          "value": "unknown",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_chest_trigger",
+      "question": "什么情况下更明显",
+      "type": "single",
+      "options": [
+        {
+          "label": "走路爬楼活动时",
+          "value": "exertion",
+          "deptWeights": {
+            "心血管内科": 0.35
+          }
+        },
+        {
+          "label": "吃完饭后或平躺时",
+          "value": "postprandial",
+          "deptWeights": {
+            "消化内科": 0.32
+          }
+        },
+        {
+          "label": "深呼吸或咳嗽时",
+          "value": "respiratory",
+          "deptWeights": {
+            "呼吸内科": 0.28
+          }
+        },
+        {
+          "label": "用手按压时",
+          "value": "palpation",
+          "deptWeights": {
+            "骨科": 0.2,
+            "胸外科": 0.12
+          }
+        },
+        {
+          "label": "情绪紧张激动时",
+          "value": "emotional",
+          "deptWeights": {
+            "临床心理科": 0.22,
+            "心血管内科": 0.1
+          }
+        },
+        {
+          "label": "没有规律说不清",
+          "value": "unknown",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_pain_nature",
+      "question": "疼痛是什么感觉",
+      "type": "single",
+      "options": [
+        {
+          "label": "压着闷着的钝痛",
+          "value": "dull",
+          "deptWeights": {
+            "心血管内科": 0.15
+          }
+        },
+        {
+          "label": "针扎样刺痛",
+          "value": "sharp",
+          "deptWeights": {
+            "神经内科": 0.1,
+            "疼痛科": 0.1
+          }
+        },
+        {
+          "label": "烧灼感",
+          "value": "burning",
+          "deptWeights": {
+            "消化内科": 0.18
+          }
+        },
+        {
+          "label": "一阵一阵绞痛",
+          "value": "colic",
+          "deptWeights": {
+            "泌尿外科": 0.15,
+            "消化内科": 0.12
+          }
+        },
+        {
+          "label": "胀痛",
+          "value": "distending",
+          "deptWeights": {
+            "消化内科": 0.1
+          }
+        },
+        {
+          "label": "说不清",
+          "value": "unknown",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_chest_radiate",
+      "question": "疼痛会串到别的地方吗",
+      "type": "single",
+      "options": [
+        {
+          "label": "串到左肩左臂或下巴",
+          "value": "left_arm",
+          "deptWeights": {
+            "心血管内科": 0.3
+          }
+        },
+        {
+          "label": "串到后背",
+          "value": "back",
+          "deptWeights": {
+            "消化内科": 0.12,
+            "心血管内科": 0.1
+          }
+        },
+        {
+          "label": "沿着肋骨走",
+          "value": "rib",
+          "deptWeights": {
+            "骨科": 0.15,
+            "皮肤科": 0.1
+          }
+        },
+        {
+          "label": "不串就在原地",
+          "value": "local",
+          "deptWeights": {}
+        },
+        {
+          "label": "说不清",
+          "value": "unknown",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_accompany_chest",
+      "question": "还有下面哪种情况",
+      "type": "single",
+      "options": [
+        {
+          "label": "夜里憋醒需要坐起来",
+          "value": "orthopnea",
+          "deptWeights": {
+            "心血管内科": 0.3
+          }
+        },
+        {
+          "label": "脚踝腿部发肿",
+          "value": "edema",
+          "deptWeights": {
+            "心血管内科": 0.25,
+            "肾内科": 0.15
+          }
+        },
+        {
+          "label": "伴有咳嗽咳痰",
+          "value": "cough",
+          "deptWeights": {
+            "呼吸内科": 0.3
+          }
+        },
+        {
+          "label": "伴有发热",
+          "value": "fever",
+          "deptWeights": {
+            "呼吸内科": 0.22,
+            "感染科": 0.12
+          }
+        },
+        {
+          "label": "都没有",
+          "value": "none",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_meal_relation",
+      "question": "和吃饭有关系吗",
+      "type": "single",
+      "options": [
+        {
+          "label": "空腹或夜间加重进食缓解",
+          "value": "fasting",
+          "deptWeights": {
+            "消化内科": 0.3
+          }
+        },
+        {
+          "label": "吃完就疼或胀",
+          "value": "after_meal",
+          "deptWeights": {
+            "消化内科": 0.28
+          }
+        },
+        {
+          "label": "吃油腻的加重",
+          "value": "greasy",
+          "deptWeights": {
+            "肝胆外科": 0.3,
+            "消化内科": 0.12
+          }
+        },
+        {
+          "label": "和吃饭没关系",
+          "value": "none",
+          "deptWeights": {}
+        },
+        {
+          "label": "说不清",
+          "value": "unknown",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_abd_side",
+      "question": "疼在哪一侧",
+      "type": "single",
+      "options": [
+        {
+          "label": "右下腹",
+          "value": "rlq",
+          "deptWeights": {
+            "普通外科": 0.32
+          }
+        },
+        {
+          "label": "左下腹",
+          "value": "llq",
+          "deptWeights": {
+            "消化内科": 0.2,
+            "肛肠科": 0.1
+          }
+        },
+        {
+          "label": "正中间小腹",
+          "value": "middle",
+          "deptWeights": {
+            "妇科": 0.18,
+            "泌尿外科": 0.15
+          }
+        },
+        {
+          "label": "整个下腹都疼",
+          "value": "diffuse",
+          "deptWeights": {
+            "普通外科": 0.15,
+            "消化内科": 0.12
+          }
+        },
+        {
+          "label": "说不清",
+          "value": "unknown",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_menstrual_relation",
+      "question": "和月经周期有关系吗",
+      "type": "single",
+      "options": [
+        {
+          "label": "经期前后加重",
+          "value": "cyclic",
+          "deptWeights": {
+            "妇科": 0.3,
+            "乳腺外科": 0.15
+          }
+        },
+        {
+          "label": "和月经没关系",
+          "value": "none",
+          "deptWeights": {}
+        },
+        {
+          "label": "目前怀孕或可能怀孕",
+          "value": "pregnant",
+          "deptWeights": {
+            "产科": 0.45
+          }
+        },
+        {
+          "label": "已绝经",
+          "value": "menopause",
+          "deptWeights": {
+            "妇科": 0.1
+          }
+        },
+        {
+          "label": "不适用或说不清",
+          "value": "unknown",
+          "deptWeights": {}
+        }
+      ],
+      "femaleOnly": true
+    },
+    {
+      "id": "slot_fever_with",
+      "question": "有没有发烧",
+      "type": "single",
+      "options": [
+        {
+          "label": "有发烧",
+          "value": "yes",
+          "deptWeights": {
+            "感染科": 0.12,
+            "呼吸内科": 0.1
+          }
+        },
+        {
+          "label": "没有发烧",
+          "value": "no",
+          "deptWeights": {}
+        },
+        {
+          "label": "没测过不清楚",
+          "value": "unknown",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_fever_range",
+      "question": "体温大概多少",
+      "type": "single",
+      "options": [
+        {
+          "label": "37.3 到 38 度低热",
+          "value": "low",
+          "deptWeights": {
+            "感染科": 0.12
+          }
+        },
+        {
+          "label": "38 到 39 度",
+          "value": "mid",
+          "deptWeights": {
+            "呼吸内科": 0.12,
+            "感染科": 0.1
+          }
+        },
+        {
+          "label": "39 度以上",
+          "value": "high",
+          "deptWeights": {
+            "感染科": 0.15,
+            "呼吸内科": 0.1
+          }
+        },
+        {
+          "label": "没测过",
+          "value": "unknown",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_fever_accompany",
+      "question": "发烧还伴随什么",
+      "type": "single",
+      "options": [
+        {
+          "label": "咳嗽咽痛",
+          "value": "resp",
+          "deptWeights": {
+            "呼吸内科": 0.3,
+            "耳鼻咽喉科": 0.12
+          }
+        },
+        {
+          "label": "腹泻呕吐",
+          "value": "gi",
+          "deptWeights": {
+            "消化内科": 0.3
+          }
+        },
+        {
+          "label": "尿频尿痛",
+          "value": "uri",
+          "deptWeights": {
+            "泌尿外科": 0.28,
+            "肾内科": 0.15
+          }
+        },
+        {
+          "label": "关节痛或皮疹",
+          "value": "rheum",
+          "deptWeights": {
+            "风湿免疫科": 0.25,
+            "皮肤科": 0.12
+          }
+        },
+        {
+          "label": "只是发烧别的没有",
+          "value": "isolated",
+          "deptWeights": {
+            "感染科": 0.2
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_cough_type",
+      "question": "咳嗽是干咳还是有痰",
+      "type": "single",
+      "options": [
+        {
+          "label": "干咳没痰",
+          "value": "dry",
+          "deptWeights": {
+            "呼吸内科": 0.22
+          }
+        },
+        {
+          "label": "有痰",
+          "value": "productive",
+          "deptWeights": {
+            "呼吸内科": 0.28
+          }
+        },
+        {
+          "label": "夜里或早晨明显",
+          "value": "nocturnal",
+          "deptWeights": {
+            "呼吸内科": 0.25
+          }
+        },
+        {
+          "label": "吃完饭或平躺加重",
+          "value": "reflux",
+          "deptWeights": {
+            "消化内科": 0.25,
+            "呼吸内科": 0.1
+          }
+        },
+        {
+          "label": "说不清",
+          "value": "unknown",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_sputum_color",
+      "question": "痰是什么样的",
+      "type": "single",
+      "options": [
+        {
+          "label": "白色稀痰",
+          "value": "white",
+          "deptWeights": {
+            "呼吸内科": 0.2
+          }
+        },
+        {
+          "label": "黄绿色脓痰",
+          "value": "purulent",
+          "deptWeights": {
+            "呼吸内科": 0.3
+          }
+        },
+        {
+          "label": "带血丝",
+          "value": "blood",
+          "deptWeights": {
+            "呼吸内科": 0.32,
+            "胸外科": 0.1
+          }
+        },
+        {
+          "label": "说不清",
+          "value": "unknown",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_headache_type",
+      "question": "头痛是什么样的",
+      "type": "single",
+      "options": [
+        {
+          "label": "一侧跳着疼",
+          "value": "migraine",
+          "deptWeights": {
+            "神经内科": 0.3
+          }
+        },
+        {
+          "label": "整个头像箍紧了",
+          "value": "tension",
+          "deptWeights": {
+            "神经内科": 0.22,
+            "临床心理科": 0.1
+          }
+        },
+        {
+          "label": "后脑勺连着脖子疼",
+          "value": "cervicogenic",
+          "deptWeights": {
+            "骨科": 0.22,
+            "针灸推拿科": 0.15
+          }
+        },
+        {
+          "label": "前额眉间胀痛伴鼻塞",
+          "value": "sinus",
+          "deptWeights": {
+            "耳鼻咽喉科": 0.32
+          }
+        },
+        {
+          "label": "说不清",
+          "value": "unknown",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_dizzy_type",
+      "question": "晕的感觉更接近哪种",
+      "type": "single",
+      "options": [
+        {
+          "label": "天旋地转看东西转",
+          "value": "spinning",
+          "deptWeights": {
+            "耳鼻咽喉科": 0.28,
+            "神经内科": 0.2
+          }
+        },
+        {
+          "label": "头重脚轻发飘",
+          "value": "lightheaded",
+          "deptWeights": {
+            "神经内科": 0.2,
+            "心血管内科": 0.12
+          }
+        },
+        {
+          "label": "昏昏沉沉不清醒",
+          "value": "foggy",
+          "deptWeights": {
+            "神经内科": 0.18
+          }
+        },
+        {
+          "label": "站起来眼前发黑",
+          "value": "orthostatic",
+          "deptWeights": {
+            "心血管内科": 0.22,
+            "血液内科": 0.1
+          }
+        },
+        {
+          "label": "说不清",
+          "value": "unknown",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_accompany_head",
+      "question": "还有下面哪种情况",
+      "type": "single",
+      "options": [
+        {
+          "label": "伴恶心呕吐",
+          "value": "vomit",
+          "deptWeights": {
+            "神经内科": 0.2
+          }
+        },
+        {
+          "label": "伴视物模糊",
+          "value": "vision",
+          "deptWeights": {
+            "眼科": 0.2,
+            "神经内科": 0.15
+          }
+        },
+        {
+          "label": "伴一侧手脚不利索",
+          "value": "weakness",
+          "deptWeights": {
+            "神经内科": 0.35
+          }
+        },
+        {
+          "label": "伴耳鸣耳闷",
+          "value": "ear",
+          "deptWeights": {
+            "耳鼻咽喉科": 0.3
+          }
+        },
+        {
+          "label": "都没有",
+          "value": "none",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_accompany_ear",
+      "question": "耳朵有没有不舒服",
+      "type": "single",
+      "options": [
+        {
+          "label": "有耳鸣或耳闷",
+          "value": "tinnitus",
+          "deptWeights": {
+            "耳鼻咽喉科": 0.32
+          }
+        },
+        {
+          "label": "听力下降了",
+          "value": "hearing",
+          "deptWeights": {
+            "耳鼻咽喉科": 0.35
+          }
+        },
+        {
+          "label": "耳朵没问题",
+          "value": "none",
+          "deptWeights": {
+            "神经内科": 0.18
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_onset_speed",
+      "question": "是突然出现还是慢慢出现的",
+      "type": "single",
+      "options": [
+        {
+          "label": "突然一下子就出现了",
+          "value": "sudden",
+          "deptWeights": {
+            "神经内科": 0.25
+          }
+        },
+        {
+          "label": "几天内逐渐加重",
+          "value": "subacute",
+          "deptWeights": {
+            "神经内科": 0.12
+          }
+        },
+        {
+          "label": "慢慢发展好几个月",
+          "value": "chronic",
+          "deptWeights": {
+            "康复医学科": 0.1
+          }
+        },
+        {
+          "label": "说不清",
+          "value": "unknown",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_trauma",
+      "question": "近期有没有受过伤",
+      "type": "single",
+      "options": [
+        {
+          "label": "有明确外伤或摔倒",
+          "value": "yes",
+          "deptWeights": {
+            "骨科": 0.35
+          }
+        },
+        {
+          "label": "干重活或长时间姿势不当后",
+          "value": "strain",
+          "deptWeights": {
+            "骨科": 0.2,
+            "针灸推拿科": 0.15
+          }
+        },
+        {
+          "label": "没有受伤",
+          "value": "no",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_back_radiate",
+      "question": "有没有串到腿上",
+      "type": "single",
+      "options": [
+        {
+          "label": "串到臀部大腿小腿",
+          "value": "sciatica",
+          "deptWeights": {
+            "骨科": 0.35
+          }
+        },
+        {
+          "label": "串到侧腹部和会阴",
+          "value": "flank",
+          "deptWeights": {
+            "泌尿外科": 0.35
+          }
+        },
+        {
+          "label": "就在腰上不串",
+          "value": "local",
+          "deptWeights": {
+            "骨科": 0.12,
+            "针灸推拿科": 0.1
+          }
+        },
+        {
+          "label": "说不清",
+          "value": "unknown",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_neck_radiate",
+      "question": "有没有串到肩膀和手上",
+      "type": "single",
+      "options": [
+        {
+          "label": "串到手臂手指发麻",
+          "value": "radiate",
+          "deptWeights": {
+            "骨科": 0.35
+          }
+        },
+        {
+          "label": "只在脖子肩膀",
+          "value": "local",
+          "deptWeights": {
+            "针灸推拿科": 0.2,
+            "骨科": 0.15
+          }
+        },
+        {
+          "label": "说不清",
+          "value": "unknown",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_urine_with",
+      "question": "小便有没有异常",
+      "type": "single",
+      "options": [
+        {
+          "label": "尿频尿急尿痛",
+          "value": "irritative",
+          "deptWeights": {
+            "泌尿外科": 0.35
+          }
+        },
+        {
+          "label": "尿里带血",
+          "value": "hematuria",
+          "deptWeights": {
+            "泌尿外科": 0.32,
+            "肾内科": 0.15
+          }
+        },
+        {
+          "label": "尿里泡沫多",
+          "value": "foam",
+          "deptWeights": {
+            "肾内科": 0.35
+          }
+        },
+        {
+          "label": "小便正常",
+          "value": "normal",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_urine_blood",
+      "question": "尿里有没有带血",
+      "type": "single",
+      "options": [
+        {
+          "label": "有肉眼可见的血",
+          "value": "gross",
+          "deptWeights": {
+            "泌尿外科": 0.32
+          }
+        },
+        {
+          "label": "没有",
+          "value": "no",
+          "deptWeights": {}
+        },
+        {
+          "label": "说不清",
+          "value": "unknown",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_urine_pain_with",
+      "question": "有没有伴随疼痛",
+      "type": "single",
+      "options": [
+        {
+          "label": "伴尿痛",
+          "value": "dysuria",
+          "deptWeights": {
+            "泌尿外科": 0.3
+          }
+        },
+        {
+          "label": "伴腰部绞痛",
+          "value": "colic",
+          "deptWeights": {
+            "泌尿外科": 0.35
+          }
+        },
+        {
+          "label": "完全不疼",
+          "value": "painless",
+          "deptWeights": {
+            "泌尿外科": 0.2,
+            "肾内科": 0.15
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_urine_foam",
+      "question": "小便泡沫多不多",
+      "type": "single",
+      "options": [
+        {
+          "label": "泡沫很多久久不散",
+          "value": "foam",
+          "deptWeights": {
+            "肾内科": 0.4
+          }
+        },
+        {
+          "label": "正常",
+          "value": "normal",
+          "deptWeights": {
+            "心血管内科": 0.12
+          }
+        },
+        {
+          "label": "没注意",
+          "value": "unknown",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_night_urine",
+      "question": "夜里起夜几次",
+      "type": "single",
+      "options": [
+        {
+          "label": "两次以上",
+          "value": "frequent",
+          "deptWeights": {
+            "泌尿外科": 0.3
+          }
+        },
+        {
+          "label": "一次或不起夜",
+          "value": "normal",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_stool_blood",
+      "question": "大便带不带血",
+      "type": "single",
+      "options": [
+        {
+          "label": "鲜红色附在大便表面或便后滴血",
+          "value": "fresh",
+          "deptWeights": {
+            "肛肠科": 0.4
+          }
+        },
+        {
+          "label": "暗红色或与大便混在一起",
+          "value": "dark",
+          "deptWeights": {
+            "消化内科": 0.3,
+            "普通外科": 0.15
+          }
+        },
+        {
+          "label": "不带血",
+          "value": "none",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_blood_pattern",
+      "question": "便血是什么样的",
+      "type": "single",
+      "options": [
+        {
+          "label": "鲜红滴血伴肛门疼",
+          "value": "anal",
+          "deptWeights": {
+            "肛肠科": 0.42
+          }
+        },
+        {
+          "label": "暗红混在大便里",
+          "value": "mixed",
+          "deptWeights": {
+            "消化内科": 0.32
+          }
+        },
+        {
+          "label": "黑色柏油样",
+          "value": "melena",
+          "deptWeights": {
+            "消化内科": 0.4
+          }
+        },
+        {
+          "label": "说不清",
+          "value": "unknown",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_stool_frequency",
+      "question": "一天拉几次",
+      "type": "single",
+      "options": [
+        {
+          "label": "三到五次",
+          "value": "few",
+          "deptWeights": {
+            "消化内科": 0.2
+          }
+        },
+        {
+          "label": "五次以上",
+          "value": "many",
+          "deptWeights": {
+            "消化内科": 0.28,
+            "感染科": 0.1
+          }
+        },
+        {
+          "label": "次数不多但一直不成形",
+          "value": "chronic",
+          "deptWeights": {
+            "消化内科": 0.25
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_accompany_gi",
+      "question": "还有别的情况吗",
+      "type": "single",
+      "options": [
+        {
+          "label": "伴腹痛腹胀",
+          "value": "pain",
+          "deptWeights": {
+            "消化内科": 0.2,
+            "普通外科": 0.12
+          }
+        },
+        {
+          "label": "伴头晕乏力面色差",
+          "value": "anemia",
+          "deptWeights": {
+            "消化内科": 0.25,
+            "血液内科": 0.12
+          }
+        },
+        {
+          "label": "伴呕吐停止排气",
+          "value": "obstruction",
+          "deptWeights": {
+            "普通外科": 0.35
+          }
+        },
+        {
+          "label": "都没有",
+          "value": "none",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_vomit_content",
+      "question": "吐出来的是什么",
+      "type": "single",
+      "options": [
+        {
+          "label": "食物或胃液",
+          "value": "food",
+          "deptWeights": {
+            "消化内科": 0.25
+          }
+        },
+        {
+          "label": "带血或咖啡色",
+          "value": "blood",
+          "deptWeights": {
+            "消化内科": 0.4
+          }
+        },
+        {
+          "label": "黄绿色苦水",
+          "value": "bile",
+          "deptWeights": {
+            "消化内科": 0.2,
+            "肝胆外科": 0.15
+          }
+        },
+        {
+          "label": "吐不出东西只是恶心",
+          "value": "dry",
+          "deptWeights": {
+            "神经内科": 0.12
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_posture_relation",
+      "question": "和姿势有关系吗",
+      "type": "single",
+      "options": [
+        {
+          "label": "平躺或弯腰时加重",
+          "value": "supine",
+          "deptWeights": {
+            "消化内科": 0.3
+          }
+        },
+        {
+          "label": "没关系",
+          "value": "none",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_jaundice_with",
+      "question": "皮肤眼白有没有发黄",
+      "type": "single",
+      "options": [
+        {
+          "label": "有发黄",
+          "value": "yes",
+          "deptWeights": {
+            "肝胆外科": 0.3,
+            "感染科": 0.15
+          }
+        },
+        {
+          "label": "没有",
+          "value": "no",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_urine_color",
+      "question": "小便颜色有变化吗",
+      "type": "single",
+      "options": [
+        {
+          "label": "像浓茶一样深",
+          "value": "dark",
+          "deptWeights": {
+            "感染科": 0.25,
+            "肝胆外科": 0.2
+          }
+        },
+        {
+          "label": "正常",
+          "value": "normal",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_dysphagia_type",
+      "question": "咽不下去的是什么",
+      "type": "single",
+      "options": [
+        {
+          "label": "固体食物咽不下",
+          "value": "solid",
+          "deptWeights": {
+            "胸外科": 0.3,
+            "消化内科": 0.2
+          }
+        },
+        {
+          "label": "喝水也费劲",
+          "value": "liquid",
+          "deptWeights": {
+            "神经内科": 0.25,
+            "胸外科": 0.15
+          }
+        },
+        {
+          "label": "感觉有东西但能咽下去",
+          "value": "globus",
+          "deptWeights": {
+            "耳鼻咽喉科": 0.3
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_mass_pain",
+      "question": "这个包块疼不疼",
+      "type": "single",
+      "options": [
+        {
+          "label": "疼且发红发热",
+          "value": "inflamed",
+          "deptWeights": {
+            "普通外科": 0.25
+          }
+        },
+        {
+          "label": "不疼但一直在长",
+          "value": "growing",
+          "deptWeights": {
+            "普通外科": 0.2,
+            "肿瘤内科": 0.12
+          }
+        },
+        {
+          "label": "不疼大小没变",
+          "value": "stable",
+          "deptWeights": {}
+        },
+        {
+          "label": "说不清",
+          "value": "unknown",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_mass_reducible",
+      "question": "包块躺下会消失吗",
+      "type": "single",
+      "options": [
+        {
+          "label": "躺下能回去站起来又出来",
+          "value": "reducible",
+          "deptWeights": {
+            "普通外科": 0.4
+          }
+        },
+        {
+          "label": "一直都在推不回去",
+          "value": "fixed",
+          "deptWeights": {
+            "普通外科": 0.25
+          }
+        },
+        {
+          "label": "说不清",
+          "value": "unknown",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_mass_change",
+      "question": "这个肿物近期有变化吗",
+      "type": "single",
+      "options": [
+        {
+          "label": "变大变色或破溃",
+          "value": "changed",
+          "deptWeights": {
+            "皮肤科": 0.25,
+            "普通外科": 0.15
+          }
+        },
+        {
+          "label": "没什么变化",
+          "value": "stable",
+          "deptWeights": {
+            "皮肤科": 0.2
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_joint_count",
+      "question": "几个关节疼",
+      "type": "single",
+      "options": [
+        {
+          "label": "只有一个关节",
+          "value": "single",
+          "deptWeights": {
+            "骨科": 0.3
+          }
+        },
+        {
+          "label": "多个关节对称疼",
+          "value": "symmetric",
+          "deptWeights": {
+            "风湿免疫科": 0.4
+          }
+        },
+        {
+          "label": "疼的位置会换地方",
+          "value": "migratory",
+          "deptWeights": {
+            "风湿免疫科": 0.32
+          }
+        },
+        {
+          "label": "大脚趾突然剧痛红肿",
+          "value": "gout",
+          "deptWeights": {
+            "内分泌科": 0.3,
+            "风湿免疫科": 0.25
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_morning_stiff",
+      "question": "早上起来关节僵硬吗",
+      "type": "single",
+      "options": [
+        {
+          "label": "僵硬超过半小时",
+          "value": "long",
+          "deptWeights": {
+            "风湿免疫科": 0.35
+          }
+        },
+        {
+          "label": "活动一下很快就好",
+          "value": "short",
+          "deptWeights": {
+            "骨科": 0.2
+          }
+        },
+        {
+          "label": "不僵硬",
+          "value": "none",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_motion_limit",
+      "question": "活动受不受影响",
+      "type": "single",
+      "options": [
+        {
+          "label": "抬不起来或活动明显受限",
+          "value": "limited",
+          "deptWeights": {
+            "骨科": 0.3
+          }
+        },
+        {
+          "label": "能活动只是疼",
+          "value": "painful",
+          "deptWeights": {
+            "骨科": 0.15,
+            "针灸推拿科": 0.12
+          }
+        },
+        {
+          "label": "说不清",
+          "value": "unknown",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_wound_open",
+      "question": "有没有破皮出血",
+      "type": "single",
+      "options": [
+        {
+          "label": "有伤口出血",
+          "value": "open",
+          "deptWeights": {
+            "普通外科": 0.3,
+            "骨科": 0.2
+          }
+        },
+        {
+          "label": "没破皮只是肿痛",
+          "value": "closed",
+          "deptWeights": {
+            "骨科": 0.35
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_weight_bearing",
+      "question": "还能不能踩地走路",
+      "type": "single",
+      "options": [
+        {
+          "label": "完全不能踩地",
+          "value": "cannot",
+          "deptWeights": {
+            "骨科": 0.4
+          }
+        },
+        {
+          "label": "能走但疼",
+          "value": "painful",
+          "deptWeights": {
+            "骨科": 0.25
+          }
+        },
+        {
+          "label": "走路没问题",
+          "value": "normal",
+          "deptWeights": {
+            "针灸推拿科": 0.12
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_edema_side",
+      "question": "肿的是一条腿还是两条",
+      "type": "single",
+      "options": [
+        {
+          "label": "只有一条腿肿",
+          "value": "unilateral",
+          "deptWeights": {
+            "血管外科": 0.42
+          }
+        },
+        {
+          "label": "两条腿都肿",
+          "value": "bilateral",
+          "deptWeights": {
+            "心血管内科": 0.25,
+            "肾内科": 0.25
+          }
+        },
+        {
+          "label": "说不清",
+          "value": "unknown",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_edema_site",
+      "question": "哪里肿得明显",
+      "type": "single",
+      "options": [
+        {
+          "label": "早上眼皮脸肿",
+          "value": "face",
+          "deptWeights": {
+            "肾内科": 0.4
+          }
+        },
+        {
+          "label": "傍晚脚踝小腿肿",
+          "value": "leg",
+          "deptWeights": {
+            "心血管内科": 0.3
+          }
+        },
+        {
+          "label": "全身都肿",
+          "value": "general",
+          "deptWeights": {
+            "肾内科": 0.25,
+            "心血管内科": 0.15
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_limb_cold",
+      "question": "腿脚发不发凉",
+      "type": "single",
+      "options": [
+        {
+          "label": "发凉摸着比另一侧冷",
+          "value": "cold",
+          "deptWeights": {
+            "血管外科": 0.4
+          }
+        },
+        {
+          "label": "温度正常",
+          "value": "normal",
+          "deptWeights": {
+            "骨科": 0.15
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_morning_first_step",
+      "question": "早上下地第一步最疼吗",
+      "type": "single",
+      "options": [
+        {
+          "label": "是走几步会缓解",
+          "value": "yes",
+          "deptWeights": {
+            "骨科": 0.32
+          }
+        },
+        {
+          "label": "不是一直都疼",
+          "value": "no",
+          "deptWeights": {
+            "骨科": 0.15,
+            "风湿免疫科": 0.12
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_itch_degree",
+      "question": "痒不痒",
+      "type": "single",
+      "options": [
+        {
+          "label": "很痒忍不住抓",
+          "value": "severe",
+          "deptWeights": {
+            "皮肤科": 0.35
+          }
+        },
+        {
+          "label": "有点痒",
+          "value": "mild",
+          "deptWeights": {
+            "皮肤科": 0.25
+          }
+        },
+        {
+          "label": "不痒但疼",
+          "value": "painful",
+          "deptWeights": {
+            "皮肤科": 0.25
+          }
+        },
+        {
+          "label": "既不痒也不疼",
+          "value": "none",
+          "deptWeights": {
+            "皮肤科": 0.2
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_rash_range",
+      "question": "疹子长在哪里",
+      "type": "single",
+      "options": [
+        {
+          "label": "身上一片一片到处都有",
+          "value": "general",
+          "deptWeights": {
+            "皮肤科": 0.3
+          }
+        },
+        {
+          "label": "沿着身体一侧带状排列",
+          "value": "dermatomal",
+          "deptWeights": {
+            "皮肤科": 0.35,
+            "疼痛科": 0.1
+          }
+        },
+        {
+          "label": "只在手脚局部",
+          "value": "local",
+          "deptWeights": {
+            "皮肤科": 0.28
+          }
+        },
+        {
+          "label": "在外阴或私处",
+          "value": "genital",
+          "deptWeights": {
+            "性病科": 0.3,
+            "皮肤科": 0.2
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_rash_with",
+      "question": "身上看得见疹子吗",
+      "type": "single",
+      "options": [
+        {
+          "label": "有明显疹子",
+          "value": "yes",
+          "deptWeights": {
+            "皮肤科": 0.35
+          }
+        },
+        {
+          "label": "皮肤看着正常就是痒",
+          "value": "no",
+          "deptWeights": {
+            "皮肤科": 0.25,
+            "内分泌科": 0.08
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_hair_pattern",
+      "question": "脱发是什么样的",
+      "type": "single",
+      "options": [
+        {
+          "label": "一块块斑秃",
+          "value": "patchy",
+          "deptWeights": {
+            "皮肤科": 0.35
+          }
+        },
+        {
+          "label": "头顶或发际线整体变稀",
+          "value": "diffuse",
+          "deptWeights": {
+            "皮肤科": 0.3
+          }
+        },
+        {
+          "label": "洗头梳头大量掉",
+          "value": "shedding",
+          "deptWeights": {
+            "皮肤科": 0.25,
+            "内分泌科": 0.1
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_acne_range",
+      "question": "痘痘长在哪里",
+      "type": "single",
+      "options": [
+        {
+          "label": "主要在脸上",
+          "value": "face",
+          "deptWeights": {
+            "皮肤科": 0.35
+          }
+        },
+        {
+          "label": "胸背也有",
+          "value": "trunk",
+          "deptWeights": {
+            "皮肤科": 0.3
+          }
+        },
+        {
+          "label": "伴月经不调多毛",
+          "value": "hormonal",
+          "deptWeights": {
+            "内分泌科": 0.25,
+            "妇科": 0.2
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_blister_pain",
+      "question": "水疱疼不疼",
+      "type": "single",
+      "options": [
+        {
+          "label": "很疼像针刺火烧",
+          "value": "painful",
+          "deptWeights": {
+            "皮肤科": 0.35,
+            "疼痛科": 0.1
+          }
+        },
+        {
+          "label": "痒为主",
+          "value": "itchy",
+          "deptWeights": {
+            "皮肤科": 0.3
+          }
+        },
+        {
+          "label": "不疼不痒",
+          "value": "none",
+          "deptWeights": {
+            "皮肤科": 0.25
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_burn_area",
+      "question": "烫伤面积多大",
+      "type": "single",
+      "options": [
+        {
+          "label": "一个巴掌以内",
+          "value": "small",
+          "deptWeights": {
+            "烧伤整形科": 0.35
+          }
+        },
+        {
+          "label": "比巴掌大",
+          "value": "large",
+          "deptWeights": {
+            "烧伤整形科": 0.45
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_bleed_other",
+      "question": "身上别的地方也容易出血吗",
+      "type": "single",
+      "options": [
+        {
+          "label": "牙龈鼻子都容易出血",
+          "value": "multi",
+          "deptWeights": {
+            "血液内科": 0.4
+          }
+        },
+        {
+          "label": "只有这一处",
+          "value": "single",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_petechiae_with",
+      "question": "有没有伴随发热或乏力",
+      "type": "single",
+      "options": [
+        {
+          "label": "有",
+          "value": "yes",
+          "deptWeights": {
+            "血液内科": 0.35
+          }
+        },
+        {
+          "label": "没有",
+          "value": "no",
+          "deptWeights": {
+            "皮肤科": 0.2
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_vision_side",
+      "question": "是一只眼还是两只眼",
+      "type": "single",
+      "options": [
+        {
+          "label": "一只眼",
+          "value": "unilateral",
+          "deptWeights": {
+            "眼科": 0.35
+          }
+        },
+        {
+          "label": "两只眼都是",
+          "value": "bilateral",
+          "deptWeights": {
+            "眼科": 0.3,
+            "神经内科": 0.1
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_vision_with",
+      "question": "视力有没有受影响",
+      "type": "single",
+      "options": [
+        {
+          "label": "看东西模糊了",
+          "value": "yes",
+          "deptWeights": {
+            "眼科": 0.4
+          }
+        },
+        {
+          "label": "视力正常",
+          "value": "no",
+          "deptWeights": {
+            "眼科": 0.25
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_eye_discharge",
+      "question": "眼睛有分泌物吗",
+      "type": "single",
+      "options": [
+        {
+          "label": "早上糊住眼睛",
+          "value": "purulent",
+          "deptWeights": {
+            "眼科": 0.35
+          }
+        },
+        {
+          "label": "只是流泪",
+          "value": "tearing",
+          "deptWeights": {
+            "眼科": 0.3
+          }
+        },
+        {
+          "label": "都没有",
+          "value": "none",
+          "deptWeights": {
+            "眼科": 0.25
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_dry_mouth_with",
+      "question": "有没有口干",
+      "type": "single",
+      "options": [
+        {
+          "label": "口干眼干都很明显",
+          "value": "yes",
+          "deptWeights": {
+            "风湿免疫科": 0.35
+          }
+        },
+        {
+          "label": "只有眼干",
+          "value": "no",
+          "deptWeights": {
+            "眼科": 0.32
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_allergy_season",
+      "question": "是不是每年固定季节发作",
+      "type": "single",
+      "options": [
+        {
+          "label": "是换季就犯",
+          "value": "seasonal",
+          "deptWeights": {
+            "眼科": 0.2,
+            "耳鼻咽喉科": 0.2
+          }
+        },
+        {
+          "label": "不是",
+          "value": "no",
+          "deptWeights": {
+            "眼科": 0.25
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_flash_light",
+      "question": "有没有眼前闪光或黑影遮挡",
+      "type": "single",
+      "options": [
+        {
+          "label": "有闪光或像帘子遮住",
+          "value": "yes",
+          "deptWeights": {
+            "眼科": 0.45
+          }
+        },
+        {
+          "label": "只是小黑点飘",
+          "value": "no",
+          "deptWeights": {
+            "眼科": 0.3
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_nasal_type",
+      "question": "鼻涕是什么样的",
+      "type": "single",
+      "options": [
+        {
+          "label": "清水样伴打喷嚏",
+          "value": "clear",
+          "deptWeights": {
+            "耳鼻咽喉科": 0.35
+          }
+        },
+        {
+          "label": "黄脓涕伴头胀",
+          "value": "purulent",
+          "deptWeights": {
+            "耳鼻咽喉科": 0.38
+          }
+        },
+        {
+          "label": "鼻塞为主没什么涕",
+          "value": "congestion",
+          "deptWeights": {
+            "耳鼻咽喉科": 0.3
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_swallow_pain",
+      "question": "咽东西疼不疼",
+      "type": "single",
+      "options": [
+        {
+          "label": "咽口水都疼",
+          "value": "severe",
+          "deptWeights": {
+            "耳鼻咽喉科": 0.38
+          }
+        },
+        {
+          "label": "吃硬东西才疼",
+          "value": "mild",
+          "deptWeights": {
+            "耳鼻咽喉科": 0.3
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_hearing_with",
+      "question": "听力有没有下降",
+      "type": "single",
+      "options": [
+        {
+          "label": "有下降",
+          "value": "yes",
+          "deptWeights": {
+            "耳鼻咽喉科": 0.4
+          }
+        },
+        {
+          "label": "听力正常",
+          "value": "no",
+          "deptWeights": {
+            "耳鼻咽喉科": 0.25
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_ear_discharge",
+      "question": "耳朵有没有流水流脓",
+      "type": "single",
+      "options": [
+        {
+          "label": "有流出液体",
+          "value": "yes",
+          "deptWeights": {
+            "耳鼻咽喉科": 0.42
+          }
+        },
+        {
+          "label": "没有",
+          "value": "no",
+          "deptWeights": {
+            "耳鼻咽喉科": 0.3
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_neck_mass_with",
+      "question": "脖子上摸到肿块吗",
+      "type": "single",
+      "options": [
+        {
+          "label": "摸到了",
+          "value": "yes",
+          "deptWeights": {
+            "甲状腺外科": 0.3,
+            "耳鼻咽喉科": 0.2
+          }
+        },
+        {
+          "label": "没有",
+          "value": "no",
+          "deptWeights": {
+            "耳鼻咽喉科": 0.35
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_thyroid_symptom",
+      "question": "有没有心慌怕热或怕冷乏力",
+      "type": "single",
+      "options": [
+        {
+          "label": "心慌怕热容易饿",
+          "value": "hyper",
+          "deptWeights": {
+            "内分泌科": 0.42
+          }
+        },
+        {
+          "label": "怕冷乏力浮肿",
+          "value": "hypo",
+          "deptWeights": {
+            "内分泌科": 0.4
+          }
+        },
+        {
+          "label": "都没有只是脖子有东西",
+          "value": "none",
+          "deptWeights": {
+            "甲状腺外科": 0.3,
+            "内分泌科": 0.15
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_snoring_with",
+      "question": "睡觉打呼噜吗",
+      "type": "single",
+      "options": [
+        {
+          "label": "打呼噜且有憋气",
+          "value": "yes",
+          "deptWeights": {
+            "耳鼻咽喉科": 0.3,
+            "呼吸内科": 0.2
+          }
+        },
+        {
+          "label": "不打呼噜",
+          "value": "no",
+          "deptWeights": {
+            "睡眠医学科": 0.25
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_daytime_sleepy_with",
+      "question": "白天困不困",
+      "type": "single",
+      "options": [
+        {
+          "label": "白天很困开车都想睡",
+          "value": "yes",
+          "deptWeights": {
+            "耳鼻咽喉科": 0.25,
+            "呼吸内科": 0.2,
+            "睡眠医学科": 0.15
+          }
+        },
+        {
+          "label": "白天精神还行",
+          "value": "no",
+          "deptWeights": {
+            "耳鼻咽喉科": 0.25
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_acid_with",
+      "question": "有没有反酸烧心",
+      "type": "single",
+      "options": [
+        {
+          "label": "有",
+          "value": "yes",
+          "deptWeights": {
+            "消化内科": 0.35
+          }
+        },
+        {
+          "label": "没有",
+          "value": "no",
+          "deptWeights": {
+            "耳鼻咽喉科": 0.3
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_tooth_trigger",
+      "question": "什么时候疼得厉害",
+      "type": "single",
+      "options": [
+        {
+          "label": "吃冷热甜的东西时",
+          "value": "stimulus",
+          "deptWeights": {
+            "口腔科": 0.4
+          }
+        },
+        {
+          "label": "夜里自发疼睡不着",
+          "value": "spontaneous",
+          "deptWeights": {
+            "口腔科": 0.42
+          }
+        },
+        {
+          "label": "咬东西时疼",
+          "value": "chewing",
+          "deptWeights": {
+            "口腔科": 0.38
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_ulcer_recurrent",
+      "question": "是不是反复发作",
+      "type": "single",
+      "options": [
+        {
+          "label": "一年反复好多次",
+          "value": "recurrent",
+          "deptWeights": {
+            "口腔科": 0.25,
+            "风湿免疫科": 0.2
+          }
+        },
+        {
+          "label": "偶尔一次",
+          "value": "occasional",
+          "deptWeights": {
+            "口腔科": 0.35
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_jaw_sound",
+      "question": "张嘴时下巴有响声吗",
+      "type": "single",
+      "options": [
+        {
+          "label": "有弹响或卡住",
+          "value": "yes",
+          "deptWeights": {
+            "口腔科": 0.4
+          }
+        },
+        {
+          "label": "没有",
+          "value": "no",
+          "deptWeights": {
+            "口腔科": 0.3
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_gum_condition",
+      "question": "牙龈情况怎么样",
+      "type": "single",
+      "options": [
+        {
+          "label": "牙龈萎缩容易出血",
+          "value": "periodontal",
+          "deptWeights": {
+            "口腔科": 0.42
+          }
+        },
+        {
+          "label": "牙龈正常",
+          "value": "normal",
+          "deptWeights": {
+            "口腔科": 0.3
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_gi_with",
+      "question": "有没有胃部不适",
+      "type": "single",
+      "options": [
+        {
+          "label": "有反酸腹胀",
+          "value": "yes",
+          "deptWeights": {
+            "消化内科": 0.3
+          }
+        },
+        {
+          "label": "没有",
+          "value": "no",
+          "deptWeights": {
+            "口腔科": 0.35
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_weight_change",
+      "question": "体重有变化吗",
+      "type": "single",
+      "options": [
+        {
+          "label": "明显变瘦",
+          "value": "loss",
+          "deptWeights": {
+            "内分泌科": 0.2,
+            "肿瘤内科": 0.12,
+            "消化内科": 0.1
+          }
+        },
+        {
+          "label": "明显变胖",
+          "value": "gain",
+          "deptWeights": {
+            "内分泌科": 0.22
+          }
+        },
+        {
+          "label": "没什么变化",
+          "value": "stable",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_appetite_with",
+      "question": "胃口怎么样",
+      "type": "single",
+      "options": [
+        {
+          "label": "吃得多还瘦",
+          "value": "increased",
+          "deptWeights": {
+            "内分泌科": 0.4
+          }
+        },
+        {
+          "label": "吃不下",
+          "value": "decreased",
+          "deptWeights": {
+            "消化内科": 0.25,
+            "肿瘤内科": 0.12
+          }
+        },
+        {
+          "label": "正常",
+          "value": "normal",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_dizzy_with",
+      "question": "有没有头晕",
+      "type": "single",
+      "options": [
+        {
+          "label": "有头晕乏力",
+          "value": "yes",
+          "deptWeights": {
+            "血液内科": 0.35
+          }
+        },
+        {
+          "label": "没有",
+          "value": "no",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_seizure_conscious",
+      "question": "发作时清醒吗",
+      "type": "single",
+      "options": [
+        {
+          "label": "失去意识",
+          "value": "unconscious",
+          "deptWeights": {
+            "神经内科": 0.45
+          }
+        },
+        {
+          "label": "意识清楚",
+          "value": "conscious",
+          "deptWeights": {
+            "神经内科": 0.3
+          }
+        },
+        {
+          "label": "说不清",
+          "value": "unknown",
+          "deptWeights": {
+            "神经内科": 0.3
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_syncope_trigger",
+      "question": "晕倒前在做什么",
+      "type": "single",
+      "options": [
+        {
+          "label": "突然站起来时",
+          "value": "orthostatic",
+          "deptWeights": {
+            "心血管内科": 0.3,
+            "神经内科": 0.15
+          }
+        },
+        {
+          "label": "活动或情绪激动时",
+          "value": "exertion",
+          "deptWeights": {
+            "心血管内科": 0.4
+          }
+        },
+        {
+          "label": "看到血或疼痛刺激后",
+          "value": "vasovagal",
+          "deptWeights": {
+            "神经内科": 0.25,
+            "心血管内科": 0.15
+          }
+        },
+        {
+          "label": "说不清",
+          "value": "unknown",
+          "deptWeights": {
+            "心血管内科": 0.2,
+            "神经内科": 0.2
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_tremor_when",
+      "question": "什么时候抖得明显",
+      "type": "single",
+      "options": [
+        {
+          "label": "安静不动时抖",
+          "value": "rest",
+          "deptWeights": {
+            "神经内科": 0.45
+          }
+        },
+        {
+          "label": "拿东西做动作时抖",
+          "value": "action",
+          "deptWeights": {
+            "神经内科": 0.35
+          }
+        },
+        {
+          "label": "紧张时才抖伴心慌怕热",
+          "value": "anxious",
+          "deptWeights": {
+            "内分泌科": 0.3,
+            "临床心理科": 0.15
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_breath_pain",
+      "question": "深呼吸时疼吗",
+      "type": "single",
+      "options": [
+        {
+          "label": "深呼吸咳嗽时明显加重",
+          "value": "yes",
+          "deptWeights": {
+            "胸外科": 0.25,
+            "骨科": 0.2,
+            "呼吸内科": 0.15
+          }
+        },
+        {
+          "label": "和呼吸无关",
+          "value": "no",
+          "deptWeights": {}
+        }
+      ]
+    },
+    {
+      "id": "slot_leg_numb_with",
+      "question": "腿脚有没有发麻无力",
+      "type": "single",
+      "options": [
+        {
+          "label": "有麻木或无力",
+          "value": "yes",
+          "deptWeights": {
+            "骨科": 0.4
+          }
+        },
+        {
+          "label": "没有",
+          "value": "no",
+          "deptWeights": {
+            "骨科": 0.2
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_vulvar_itch_with",
+      "question": "外阴痒不痒",
+      "type": "single",
+      "options": [
+        {
+          "label": "很痒",
+          "value": "yes",
+          "deptWeights": {
+            "妇科": 0.4
+          }
+        },
+        {
+          "label": "不痒",
+          "value": "no",
+          "deptWeights": {
+            "妇科": 0.3
+          }
+        }
+      ],
+      "femaleOnly": true
+    },
+    {
+      "id": "slot_vaginal_discharge_with",
+      "question": "白带有没有异常",
+      "type": "single",
+      "options": [
+        {
+          "label": "白带增多或异味",
+          "value": "yes",
+          "deptWeights": {
+            "妇科": 0.42
+          }
+        },
+        {
+          "label": "白带正常",
+          "value": "no",
+          "deptWeights": {
+            "妇科": 0.25,
+            "皮肤科": 0.15
+          }
+        }
+      ],
+      "femaleOnly": true
+    },
+    {
+      "id": "slot_pregnancy_status",
+      "question": "有没有怀孕的可能",
+      "type": "single",
+      "options": [
+        {
+          "label": "已确认怀孕",
+          "value": "pregnant",
+          "deptWeights": {
+            "产科": 0.5
+          }
+        },
+        {
+          "label": "有可能还没查",
+          "value": "possible",
+          "deptWeights": {
+            "妇科": 0.3,
+            "产科": 0.2
+          }
+        },
+        {
+          "label": "不可能怀孕",
+          "value": "no",
+          "deptWeights": {
+            "妇科": 0.35
+          }
+        }
+      ],
+      "femaleOnly": true
+    },
+    {
+      "id": "slot_menstrual_pattern",
+      "question": "月经具体怎么不正常",
+      "type": "single",
+      "options": [
+        {
+          "label": "好几个月不来",
+          "value": "amenorrhea",
+          "deptWeights": {
+            "妇科": 0.35,
+            "内分泌科": 0.15
+          }
+        },
+        {
+          "label": "量特别多或时间长",
+          "value": "menorrhagia",
+          "deptWeights": {
+            "妇科": 0.4
+          }
+        },
+        {
+          "label": "周期紊乱不规律",
+          "value": "irregular",
+          "deptWeights": {
+            "妇科": 0.38
+          }
+        }
+      ],
+      "femaleOnly": true
+    },
+    {
+      "id": "slot_dysmenorrhea_degree",
+      "question": "痛经严重到什么程度",
+      "type": "single",
+      "options": [
+        {
+          "label": "疼到影响上班上学",
+          "value": "severe",
+          "deptWeights": {
+            "妇科": 0.42
+          }
+        },
+        {
+          "label": "能忍受",
+          "value": "mild",
+          "deptWeights": {
+            "妇科": 0.3,
+            "中医内科": 0.1
+          }
+        },
+        {
+          "label": "近几年越来越疼",
+          "value": "worsening",
+          "deptWeights": {
+            "妇科": 0.45
+          }
+        }
+      ],
+      "femaleOnly": true
+    },
+    {
+      "id": "slot_exposure_history",
+      "question": "近期有没有不安全性接触",
+      "type": "single",
+      "options": [
+        {
+          "label": "有",
+          "value": "yes",
+          "deptWeights": {
+            "性病科": 0.45
+          }
+        },
+        {
+          "label": "没有",
+          "value": "no",
+          "deptWeights": {
+            "皮肤科": 0.3
+          }
+        },
+        {
+          "label": "不方便说",
+          "value": "skip",
+          "deptWeights": {
+            "皮肤科": 0.15,
+            "性病科": 0.15
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_wheeze_trigger",
+      "question": "什么情况下发作",
+      "type": "single",
+      "options": [
+        {
+          "label": "接触花粉灰尘冷空气",
+          "value": "allergen",
+          "deptWeights": {
+            "呼吸内科": 0.42
+          }
+        },
+        {
+          "label": "夜间或凌晨",
+          "value": "night",
+          "deptWeights": {
+            "呼吸内科": 0.4
+          }
+        },
+        {
+          "label": "活动后",
+          "value": "exertion",
+          "deptWeights": {
+            "呼吸内科": 0.28,
+            "心血管内科": 0.15
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_sleep_pattern",
+      "question": "睡眠具体是哪种情况",
+      "type": "single",
+      "options": [
+        {
+          "label": "躺下半小时以上睡不着",
+          "value": "onset",
+          "deptWeights": {
+            "睡眠医学科": 0.3,
+            "临床心理科": 0.15
+          }
+        },
+        {
+          "label": "半夜醒了就睡不着",
+          "value": "maintenance",
+          "deptWeights": {
+            "睡眠医学科": 0.28,
+            "临床心理科": 0.18
+          }
+        },
+        {
+          "label": "睡够了还是累",
+          "value": "nonrestorative",
+          "deptWeights": {
+            "睡眠医学科": 0.25,
+            "呼吸内科": 0.1
+          }
+        }
+      ]
+    },
+    {
+      "id": "slot_mood_impact",
+      "question": "有没有影响到正常生活工作",
+      "type": "single",
+      "options": [
+        {
+          "label": "明显影响持续两周以上",
+          "value": "severe",
+          "deptWeights": {
+            "临床心理科": 0.45
+          }
+        },
+        {
+          "label": "有点影响还能应付",
+          "value": "mild",
+          "deptWeights": {
+            "临床心理科": 0.3
+          }
+        },
+        {
+          "label": "只是最近事情多",
+          "value": "situational",
+          "deptWeights": {
+            "临床心理科": 0.2
+          }
+        }
+      ]
+    }
+  ]
+}
