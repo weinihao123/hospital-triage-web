@@ -1,0 +1,413 @@
+{
+  "version": "eff-1.0",
+  "map": {
+    "sy_chest_pain": {
+      "INT_CARDIO": 1,
+      "INT_RESP": 1
+    },
+    "sy_chest_tight": {
+      "INT_CARDIO": 1
+    },
+    "sy_palpitation": {
+      "INT_CARDIO": 1
+    },
+    "sy_dyspnea": {
+      "INT_CARDIO": 1,
+      "INT_RESP": 1
+    },
+    "sy_leg_edema": {
+      "INT_CARDIO": 1,
+      "INT_NEPHRO": 1
+    },
+    "sy_syncope": {
+      "INT_CARDIO": 1
+    },
+    "sy_cough": {
+      "INT_RESP": 1,
+      "PED_INT": 1
+    },
+    "sy_sputum": {
+      "INT_RESP": 1
+    },
+    "sy_hemoptysis": {
+      "INT_RESP": 1
+    },
+    "sy_wheeze": {
+      "INT_RESP": 1
+    },
+    "sy_fever": {
+      "INT_RESP": 1,
+      "INT_HEMA": 1,
+      "INT_INFECT": 1,
+      "PED_INT": 1
+    },
+    "sy_epigastric_pain": {
+      "INT_GASTRO": 1,
+      "SUR_GEN": 1,
+      "SUR_HEPATO": 0.4
+    },
+    "sy_bloating": {
+      "INT_GASTRO": 1
+    },
+    "sy_acid_reflux": {
+      "INT_GASTRO": 1
+    },
+    "sy_nausea_vomit": {
+      "INT_GASTRO": 1,
+      "PED_INT": 0.5
+    },
+    "sy_diarrhea": {
+      "INT_GASTRO": 1,
+      "PED_INT": 1
+    },
+    "sy_constipation": {
+      "INT_GASTRO": 1
+    },
+    "sy_melena": {
+      "INT_GASTRO": 1
+    },
+    "sy_appetite_loss": {
+      "INT_GASTRO": 1
+    },
+    "sy_headache": {
+      "INT_NEURO": 1,
+      "SUR_NEUROSUR": 1
+    },
+    "sy_dizzy": {
+      "INT_NEURO": 1
+    },
+    "sy_vertigo": {
+      "INT_NEURO": 1
+    },
+    "sy_seizure": {
+      "INT_NEURO": 1
+    },
+    "sy_tremor": {
+      "INT_NEURO": 1
+    },
+    "sy_memory_loss": {
+      "INT_NEURO": 1
+    },
+    "sy_speech_slur": {
+      "INT_NEURO": 1
+    },
+    "sy_polyuria": {
+      "INT_ENDO": 1
+    },
+    "sy_heat_intolerance": {
+      "INT_ENDO": 1
+    },
+    "sy_back_soreness": {
+      "INT_ENDO": 1,
+      "INT_NEPHRO": 1,
+      "INT_HEMA": 1,
+      "INT_INFECT": 1
+    },
+    "sy_hematuria": {
+      "INT_NEPHRO": 1,
+      "SUR_URO": 1
+    },
+    "sy_pallor": {
+      "INT_HEMA": 1
+    },
+    "sy_petechiae": {
+      "INT_HEMA": 1
+    },
+    "sy_gum_bleed": {
+      "INT_HEMA": 1,
+      "EENT_STO": 1
+    },
+    "sy_lymph_swell": {
+      "INT_HEMA": 1
+    },
+    "sy_joint_swell": {
+      "INT_RHEU": 1
+    },
+    "sy_eye_dry": {
+      "INT_RHEU": 1
+    },
+    "sy_oral_ulcer": {
+      "INT_RHEU": 1,
+      "EENT_STO": 1
+    },
+    "sy_jaundice": {
+      "INT_INFECT": 1,
+      "SUR_HEPATO": 1,
+      "PED_NEO": 1
+    },
+    "sy_groin_mass": {
+      "SUR_GEN": 1,
+      "PED_SUR": 1
+    },
+    "sy_ruq_pain": {
+      "SUR_HEPATO": 1,
+      "INT_GASTRO": 0.6
+    },
+    "sy_breast_mass": {
+      "SUR_BREAST": 1
+    },
+    "sy_breast_pain": {
+      "SUR_BREAST": 1
+    },
+    "sy_neck_mass": {
+      "SUR_THYROID": 1
+    },
+    "sy_thyroid_swell": {
+      "SUR_THYROID": 1
+    },
+    "sy_hoarseness": {
+      "SUR_THYROID": 1,
+      "EENT_ENT": 1
+    },
+    "sy_low_back_pain": {
+      "SUR_ORTHO": 1
+    },
+    "sy_neck_pain": {
+      "SUR_ORTHO": 1
+    },
+    "sy_knee_pain": {
+      "SUR_ORTHO": 1
+    },
+    "sy_head_trauma": {
+      "SUR_ORTHO": 1,
+      "SUR_NEUROSUR": 1
+    },
+    "sy_hand_trauma": {
+      "SUR_ORTHO": 1,
+      "TCM_ORTHO": 1
+    },
+    "sy_dysuria": {
+      "SUR_URO": 1
+    },
+    "sy_urine_difficulty": {
+      "SUR_URO": 1
+    },
+    "sy_flank_colic": {
+      "SUR_URO": 1
+    },
+    "sy_scrotal_pain": {
+      "SUR_URO": 1
+    },
+    "sy_chest_trauma": {
+      "SUR_THOR": 1
+    },
+    "sy_dysphagia": {
+      "SUR_THOR": 1
+    },
+    "sy_varicose": {
+      "SUR_VASC": 1
+    },
+    "sy_claudication": {
+      "SUR_VASC": 1
+    },
+    "sy_hematochezia": {
+      "SUR_ANO": 1
+    },
+    "sy_anal_pain": {
+      "SUR_ANO": 1
+    },
+    "sy_anal_mass": {
+      "SUR_ANO": 1
+    },
+    "sy_burn": {
+      "SUR_BURN": 1
+    },
+    "sy_menstrual_disorder": {
+      "OBG_GYN": 1
+    },
+    "sy_vaginal_discharge": {
+      "OBG_GYN": 1,
+      "DERM_STD": 1
+    },
+    "sy_vulvar_itch": {
+      "OBG_GYN": 1
+    },
+    "sy_lower_abd_pain": {
+      "OBG_GYN": 1,
+      "SUR_GEN": 0.6,
+      "INT_GASTRO": 0.45
+    },
+    "sy_vaginal_bleeding": {
+      "OBG_GYN": 1
+    },
+    "sy_dysmenorrhea": {
+      "OBG_GYN": 1
+    },
+    "sy_infertility": {
+      "OBG_REPRO": 1
+    },
+    "sy_rash": {
+      "PED_INT": 1,
+      "DERM_SKIN": 1
+    },
+    "sy_vision_loss": {
+      "EENT_OPH": 1
+    },
+    "sy_eye_pain": {
+      "EENT_OPH": 1
+    },
+    "sy_eye_itch": {
+      "EENT_OPH": 1
+    },
+    "sy_blurred_vision": {
+      "EENT_OPH": 1
+    },
+    "sy_floaters": {
+      "EENT_OPH": 1
+    },
+    "sy_eye_foreign": {
+      "EENT_OPH": 1
+    },
+    "sy_nasal_congestion": {
+      "EENT_ENT": 1
+    },
+    "sy_epistaxis": {
+      "EENT_ENT": 1
+    },
+    "sy_sore_throat": {
+      "EENT_ENT": 1
+    },
+    "sy_tinnitus": {
+      "EENT_ENT": 1
+    },
+    "sy_hearing_loss": {
+      "EENT_ENT": 1
+    },
+    "sy_ear_pain": {
+      "EENT_ENT": 1
+    },
+    "sy_snoring": {
+      "EENT_ENT": 1
+    },
+    "sy_throat_foreign": {
+      "EENT_ENT": 1
+    },
+    "sy_toothache": {
+      "EENT_STO": 1
+    },
+    "sy_gum_swell": {
+      "EENT_STO": 1
+    },
+    "sy_trismus": {
+      "EENT_STO": 1
+    },
+    "sy_tooth_loose": {
+      "EENT_STO": 1
+    },
+    "sy_itch": {
+      "DERM_SKIN": 1
+    },
+    "sy_blister": {
+      "DERM_SKIN": 1
+    },
+    "sy_hair_loss": {
+      "DERM_SKIN": 1
+    },
+    "sy_acne": {
+      "DERM_SKIN": 1
+    },
+    "sy_skin_mass": {
+      "DERM_SKIN": 1
+    },
+    "sy_genital_lesion": {
+      "DERM_STD": 1
+    },
+    "sy_depressed": {
+      "PSY_CLIN": 1
+    },
+    "sy_anxiety": {
+      "PSY_CLIN": 1
+    },
+    "sy_anhedonia": {
+      "PSY_CLIN": 1
+    },
+    "sy_insomnia": {
+      "PSY_SLEEP": 1
+    },
+    "sy_early_wake": {
+      "PSY_SLEEP": 1
+    },
+    "sy_daytime_sleepy": {
+      "PSY_SLEEP": 1
+    },
+    "sy_facial_palsy": {
+      "TCM_ACU": 1
+    },
+    "sy_stiff_neck": {
+      "TCM_ACU": 1
+    },
+    "sy_face_numb": {
+      "INT_NEURO": 1
+    },
+    "sy_arm_numb": {
+      "INT_NEURO": 1,
+      "SUR_ORTHO": 0.875
+    },
+    "sy_leg_numb": {
+      "INT_NEURO": 1,
+      "SUR_ORTHO": 0.875
+    },
+    "sy_arm_weak": {
+      "INT_NEURO": 1
+    },
+    "sy_leg_weak": {
+      "INT_NEURO": 1,
+      "SUR_ORTHO": 0.667
+    },
+    "sy_shoulder_pain": {
+      "SUR_ORTHO": 1,
+      "TCM_ACU": 0.6
+    },
+    "sy_heel_pain": {
+      "SUR_ORTHO": 1
+    },
+    "sy_back_pain": {
+      "SUR_ORTHO": 1,
+      "TCM_ACU": 0.5
+    },
+    "sy_back_trauma": {
+      "SUR_ORTHO": 1
+    },
+    "sy_leg_trauma": {
+      "SUR_ORTHO": 1
+    },
+    "sy_abd_mass": {
+      "SUR_GEN": 1,
+      "OBG_GYN": 0.625,
+      "SUR_HEPATO": 0.625
+    },
+    "sy_no_stool_gas": {
+      "SUR_GEN": 1
+    },
+    "sy_eye_red": {
+      "EENT_OPH": 1
+    },
+    "sy_halitosis": {
+      "EENT_STO": 1,
+      "INT_GASTRO": 0.5
+    },
+    "sy_fatigue": {
+      "GP": 1,
+      "TCM_INT": 0.4,
+      "INT_ENDO": 0.3
+    },
+    "sy_weight_loss": {
+      "INT_ENDO": 1,
+      "ONC_MED": 0.5,
+      "INT_GASTRO": 0.4
+    },
+    "sy_edema": {
+      "INT_NEPHRO": 1,
+      "INT_CARDIO": 0.7,
+      "INT_GASTRO": 0.3
+    },
+    "sy_night_sweat": {
+      "INT_INFECT": 1,
+      "INT_HEMA": 0.4
+    },
+    "sy_multi_joint_pain": {
+      "INT_RHEU": 1,
+      "INT_CARDIO": 0.3
+    }
+  }
+}
