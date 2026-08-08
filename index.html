@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>智能导诊</title>
+<style>
+  :root{
+    --bg:#eef3f8; --card:#ffffff; --ink:#1f2d3d; --sub:#6b7c93;
+    --brand:#1f7ae0; --brand-d:#155fb0; --line:#e3e9f0; --ok:#1aa37a;
+    --warn:#e8943a; --soft:#f3f7fb;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;background:var(--bg);}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+    color:var(--ink);
+  }
+  .phone{
+    max-width:430px;margin:0 auto;min-height:100vh;background:var(--bg);
+    display:flex;flex-direction:column;
+  }
+  header.bar{
+    background:linear-gradient(135deg,var(--brand),var(--brand-d));
+    color:#fff;padding:18px 18px 16px;position:sticky;top:0;z-index:5;
+  }
+  header.bar .t{font-size:18px;font-weight:700;letter-spacing:.5px;}
+  header.bar .s{font-size:12px;opacity:.9;margin-top:3px;}
+  main{flex:1;padding:16px;overflow-y:auto;}
+  .card{background:var(--card);border-radius:16px;padding:18px;margin-bottom:14px;
+    box-shadow:0 4px 16px rgba(31,45,61,.06);}
+  .step{font-size:12px;color:var(--brand);font-weight:600;margin-bottom:6px;}
+  .q{font-size:17px;font-weight:700;margin-bottom:14px;line-height:1.4;}
+  .opt{
+    display:flex;align-items:center;justify-content:space-between;
+    border:1.5px solid var(--line);border-radius:12px;padding:13px 15px;margin-bottom:10px;
+    font-size:15px;background:#fff;cursor:pointer;transition:.15s;
+  }
+  .opt:active{transform:scale(.99);}
+  .opt.sel{background:var(--soft);border-color:var(--brand);color:var(--brand-d);font-weight:600;}
+  .opt .ic{font-size:20px;margin-right:10px;}
+  .opt .lb{flex:1;}
+  .opt .chk{width:20px;height:20px;border-radius:50%;border:2px solid var(--line);}
+  .opt.sel .chk{background:var(--brand);border-color:var(--brand);}
+  .opt.sel .chk::after{content:"";display:block;width:8px;height:8px;border-radius:50%;background:#fff;margin:5px auto 0;}
+  textarea{
+    width:100%;border:1.5px solid var(--line);border-radius:12px;padding:12px;
+    font-size:15px;font-family:inherit;resize:none;min-height:90px;outline:none;
+  }
+  textarea:focus{border-color:var(--brand);}
+  .btn{
+    display:block;width:100%;border:none;border-radius:12px;padding:14px;
+    font-size:16px;font-weight:700;color:#fff;background:var(--brand);
+    cursor:pointer;transition:.15s;margin-top:6px;
+  }
+  .btn:active{background:var(--brand-d);}
+  .btn[disabled]{opacity:.5;}
+  .btn.ghost{background:#fff;color:var(--brand);border:1.5px solid var(--brand);}
+  .btn.soft{background:var(--soft);color:var(--sub);}
+  .row{display:flex;gap:10px;}
+  .row .btn{flex:1;}
+  .hint{font-size:12px;color:var(--sub);margin-top:8px;line-height:1.5;}
+  .dept{
+    border:1.5px solid var(--line);border-radius:14px;padding:16px;margin-bottom:12px;
+    background:#fff;
+  }
+  .dept.top{border-color:var(--brand);box-shadow:0 6px 18px rgba(31,122,224,.12);}
+  .dept .h{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+  .dept .nm{font-size:18px;font-weight:800;}
+  .dept .lv{font-size:11px;color:#fff;background:var(--sub);border-radius:6px;padding:2px 7px;}
+  .dept .lv.l2{background:var(--brand);}
+  .stars{color:var(--warn);font-size:17px;letter-spacing:2px;}
+  .stars .e{color:var(--line);}
+  .sum{font-size:14px;color:var(--ink);line-height:1.6;margin-top:6px;}
+  .why{margin-top:10px;font-size:13px;color:var(--sub);border-top:1px dashed var(--line);padding-top:10px;display:none;}
+  .why.show{display:block;}
+  .wt{color:var(--brand);font-size:13px;margin-top:8px;cursor:pointer;}
+  .fb{background:#fff7ec;border:1px solid #f3d9b0;color:#8a5a16;border-radius:12px;
+    padding:12px;font-size:13px;margin-bottom:12px;line-height:1.5;}
+  .spin{display:inline-block;width:16px;height:16px;border:2px solid #fff;border-top-color:transparent;
+    border-radius:50%;animation:r .7s linear infinite;vertical-align:-3px;margin-right:6px;}
+  @keyframes r{to{transform:rotate(360deg);}}
+  .center{text-align:center;color:var(--sub);padding:40px 0;font-size:14px;}
+  footer{font-size:11px;color:var(--sub);text-align:center;padding:12px;}
+</style>
+</head>
+<body>
+<div class="phone">
+  <header class="bar">
+    <div class="t">智能导诊</div>
+    <div class="s">描述不适，为您推荐合适的挂号科室</div>
+  </header>
+  <main id="app"><div class="center">正在准备…</div></main>
+  <footer>本服务仅作挂号参考，不构成诊断意见</footer>
+</div>
+
+<!-- 依赖：MiniSearch 浏览器版（自包含，无外部 CDN） -->
+<script src="vendor/minisearch.umd.js"></script>
+<!-- 分诊引擎：纯前端，逻辑移植自服务端 core/ -->
+<script src="engine.js"></script>
+
+<script>
+const T = window.TriageEngine;
+let SID = null;
+let VIEW = null;
+let pending = { bodyPartIds: [], symptomIds: [] };
+
+const app = document.getElementById('app');
+
+function el(html){ const d=document.createElement('div'); d.innerHTML=html.trim(); return d.firstChild; }
+function stars(n){
+  let s=''; for(let i=1;i<=5;i++) s += i<=n ? '★' : '<span class="e">★</span>'; return s;
+}
+
+// 用本地引擎替代后端 fetch（返回的 view 结构与后端一致）
+function start(){
+  const j = T.start();
+  SID = j.sessionId; VIEW = j.view; render(VIEW);
+}
+
+function render(view){
+  VIEW = view;
+  app.innerHTML = '';
+  switch(view.type){
+    case 'basics': return renderBasics(view);
+    case 'bodyParts': return renderBodyParts(view);
+    case 'symptoms': return renderSymptoms(view);
+    case 'freeText': return renderFreeText(view);
+    case 'slot': return renderSlot(view);
+    case 'result': return renderResult(view);
+    default:
+      app.appendChild(el('<div class="center">暂无可展示的内容</div>'));
+  }
+}
+
+function renderBasics(view){
+  const card = el('<div class="card"></div>');
+  card.appendChild(el('<div class="step">第 1 步 / 共 4 步</div>'));
+  const sel = {};
+  view.basics.forEach((f,idx)=>{
+    card.appendChild(el(`<div class="q">${f.question}</div>`));
+    const opts = el('<div></div>');
+    f.options.forEach(o=>{
+      const b = el(`<div class="opt"><span class="lb">${o.label}</span><span class="chk"></span></div>`);
+      b.onclick = ()=>{
+        sel[f.id] = o.value;
+        [...opts.children].forEach(c=>c.classList.remove('sel'));
+        b.classList.add('sel');
+        checkBasics();
+      };
+      opts.appendChild(b);
+    });
+    card.appendChild(opts);
+    if(idx < view.basics.length-1) card.appendChild(el('<div style="height:8px"></div>'));
+  });
+  const btn = el('<button class="btn" disabled>下一步</button>');
+  btn.onclick = ()=>{
+    btn.disabled = true; btn.innerHTML = '<span class="spin"></span>分析中';
+    answer({ age: sel.basic_age, gender: sel.basic_gender });
+  };
+  card.appendChild(btn);
+  function checkBasics(){ btn.disabled = !(sel.basic_age && sel.basic_gender); }
+  app.appendChild(card);
+}
+
+function renderBodyParts(view){
+  const card = el('<div class="card"></div>');
+  card.appendChild(el('<div class="step">第 2 步 / 共 4 步</div>'));
+  card.appendChild(el(`<div class="q">${view.title || '身体哪个部位不舒服？'}</div>`));
+  const opts = el('<div></div>');
+  view.bodyParts.forEach(bp=>{
+    const b = el(`<div class="opt"><span class="ic">${bp.icon||''}</span><span class="lb">${bp.label}</span><span class="chk"></span></div>`);
+    b.onclick = ()=>{
+      const i = pending.bodyPartIds.indexOf(bp.id);
+      if(i>=0){ pending.bodyPartIds.splice(i,1); b.classList.remove('sel'); }
+      else { pending.bodyPartIds.push(bp.id); b.classList.add('sel'); }
+    };
+    opts.appendChild(b);
+  });
+  card.appendChild(opts);
+  const btn = el('<button class="btn">下一步</button>');
+  btn.onclick = ()=>{
+    if(!pending.bodyPartIds.length){ alert('请至少选择一个部位'); return; }
+    btn.disabled = true; btn.innerHTML = '<span class="spin"></span>分析中';
+    answer({ bodyPartIds: pending.bodyPartIds });
+  };
+  card.appendChild(btn);
+  card.appendChild(el('<div class="hint">可多选。若不确定，先选最明显的部位。</div>'));
+  app.appendChild(card);
+}
+
+function renderSymptoms(view){
+  const card = el('<div class="card"></div>');
+  card.appendChild(el('<div class="step">第 3 步 / 共 4 步</div>'));
+  card.appendChild(el(`<div class="q">${view.title || '具体是哪些表现？'}</div>`));
+  view.groups.forEach(g=>{
+    card.appendChild(el(`<div class="hint" style="margin:10px 0 6px;color:var(--brand-d);font-weight:600">${g.bodyPartLabel}</div>`));
+    g.items.forEach(s=>{
+      const b = el(`<div class="opt"><span class="lb">${s.label}</span><span class="chk"></span></div>`);
+      b.onclick = ()=>{
+        const i = pending.symptomIds.indexOf(s.id);
+        if(i>=0){ pending.symptomIds.splice(i,1); b.classList.remove('sel'); }
+        else { pending.symptomIds.push(s.id); b.classList.add('sel'); }
+      };
+      card.appendChild(b);
+    });
+  });
+  const btn = el('<button class="btn">下一步</button>');
+  btn.onclick = ()=>{
+    if(!pending.symptomIds.length){ alert('请至少选择一项表现'); return; }
+    btn.disabled = true; btn.innerHTML = '<span class="spin"></span>分析中';
+    answer({ symptomIds: pending.symptomIds, done: true });
+  };
+  card.appendChild(btn);
+  card.appendChild(el('<div class="hint">可多选，选得越准推荐越准。</div>'));
+  app.appendChild(card);
+}
+
+function renderFreeText(view){
+  const card = el('<div class="card"></div>');
+  card.appendChild(el('<div class="step">第 4 步 / 共 4 步（选填）</div>'));
+  card.appendChild(el(`<div class="q">${view.title || '还有想补充的情况吗？'}</div>`));
+  const ta = el('<textarea placeholder="例如：已经三天了，晚上疼得更厉害，伴有轻微恶心…"></textarea>');
+  card.appendChild(ta);
+  const submit = el('<button class="btn">提交并查看建议</button>');
+  submit.onclick = ()=>{
+    submit.disabled = true; submit.innerHTML = '<span class="spin"></span>分析中';
+    answer({ freeText: ta.value.trim() });
+  };
+  card.appendChild(submit);
+  card.appendChild(el('<div class="hint">没有可补充的，直接点上方按钮即可。</div>'));
+  app.appendChild(card);
+}
+
+function renderSlot(view){
+  const card = el('<div class="card"></div>');
+  card.appendChild(el(`<div class="step">补充提问（${view.round}/${view.maxRound}）</div>`));
+  card.appendChild(el(`<div class="q">${view.title || '再补充一点'}</div>`));
+  const opts = el('<div></div>');
+  (view.slot.options||[]).forEach(o=>{
+    const b = el(`<div class="opt"><span class="lb">${o.label}</span><span class="chk"></span></div>`);
+    b.onclick = ()=>{
+      [...opts.children].forEach(c=>c.classList.remove('sel'));
+      b.classList.add('sel');
+      opts.style.pointerEvents='none';
+      const btn = el('<div class="btn" style="margin-top:10px"><span class="spin"></span>分析中</div>');
+      card.appendChild(btn);
+      answer({ value: o.value });
+    };
+    opts.appendChild(b);
+  });
+  card.appendChild(opts);
+  const fin = el('<button class="btn ghost" style="margin-top:6px">不想回答了，直接看结果</button>');
+  fin.onclick = ()=>{
+    fin.disabled = true; fin.innerHTML = '<span class="spin"></span>生成中';
+    answer({ finish: true });
+  };
+  card.appendChild(fin);
+  app.appendChild(card);
+}
+
+function renderResult(view){
+  const r = view.result;
+  if(!r || !r.departments || !r.departments.length){
+    app.appendChild(el('<div class="center">暂未生成推荐，请重试。</div>'));
+    return;
+  }
+  if(r.fallbackNote){
+    const fb = el(`<div class="fb">${r.fallbackNote}</div>`);
+    app.appendChild(fb);
+  }
+  r.departments.slice(0,3).forEach((d, i)=>{
+    const card = el('<div class="dept'+(i===0?' top':'')+'"></div>');
+    card.appendChild(el(`<div class="h"><div class="nm">${i===0?'首选 ':'可选 '}${d.name}</div><div class="lv ${d.level===2?'l2':''}">${d.level===1?'一级':'二级'}</div></div>`));
+    card.appendChild(el(`<div class="stars">${stars(d.stars)}</div>`));
+    card.appendChild(el(`<div class="sum">${d.summary || ''}</div>`));
+    if(d.reasons && d.reasons.length){
+      const wt = el('<div class="wt">查看推荐依据</div>');
+      const why = el(`<div class="why">${d.reasons.map(x=>'· '+x).join('<br>')}</div>`);
+      wt.onclick = ()=> why.classList.toggle('show');
+      card.appendChild(wt); card.appendChild(why);
+    }
+    app.appendChild(card);
+  });
+  const again = el('<button class="btn soft" style="margin-top:4px">再为其他人导诊</button>');
+  again.onclick = ()=>{ pending = { bodyPartIds:[], symptomIds:[] }; start(); };
+  app.appendChild(again);
+}
+
+function answer(data){
+  try{
+    const j = T.answer(SID, data);
+    render(j.view);
+  }catch(e){
+    alert(e.message || '出错了，请重试');
+    location.reload();
+  }
+}
+
+// 先加载知识库数据，再启动导诊
+T.init().then(start).catch((e)=>{
+  app.innerHTML = '<div class="center">知识库数据加载失败：' + (e && e.message ? e.message : e) + '<br>请确认网络可访问本页面资源。</div>';
+});
+</script>
+</body>
+</html>
